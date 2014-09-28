@@ -7,6 +7,7 @@ package
 	import hu.vizoli.performancetest.ArrayTests;
 	import hu.vizoli.performancetest.IntTests;
 	import hu.vizoli.performancetest.IntTests;
+	import hu.vizoli.performancetest.LoopTests;
 	import hu.vizoli.performancetest.NumberTest;
 	import hu.vizoli.performancetest.UintTest;
 	import hu.vizoli.performancetest.VectorTests;
@@ -43,8 +44,9 @@ package
 			//this.numberTests();
 			//this.intTests();
 			//this.uintTests();
-			this.arrayTests();
-			this.vectorTests();
+			//this.arrayTests();
+			//this.vectorTests();
+			this.loopTests();
 		}
 		
 		/**
@@ -52,6 +54,7 @@ package
 		 */
 		private function numberTests():void
 		{
+			trace( "-------------------------------------------------- NUMBER TESTS ----------------------------------------------" );
 			trace( ptest( NumberTest.addition, null, "Number addition", 10 ) );
 			trace( ptest( NumberTest.subtraction, null, "Number subtraction", 10 ) );
 			trace( ptest( NumberTest.multiplication, null, "Number multiplication", 10 ) );
@@ -64,6 +67,7 @@ package
 		 */
 		private function intTests():void
 		{
+			trace( "--------------------------------------------------- INT TESTS ------------------------------------------------" );
 			trace( ptest( IntTests.addition, null, "int addition", 10 ) );
 			trace( ptest( IntTests.subtraction, null, "int subtraction", 10 ) );
 			trace( ptest( IntTests.multiplication, null, "int multiplication", 10 ) );
@@ -76,6 +80,7 @@ package
 		 */
 		private function uintTests():void
 		{
+			trace( "-------------------------------------------------- UINT TESTS ------------------------------------------------" );
 			trace( ptest( UintTest.addition, null, "uint addition", 10 ) );
 			trace( ptest( UintTest.subtraction, null, "uint subtraction", 10 ) );
 			trace( ptest( UintTest.multiplication, null, "uint multiplication", 10 ) );
@@ -88,6 +93,7 @@ package
 		 */
 		private function arrayTests():void
 		{
+			trace( "-------------------------------------------------- ARRAY TESTS -----------------------------------------------" );
 			trace( ptest( ArrayTests.instatiateNormal, null, "Array normal instantiate", 10 ) );
 			trace( ptest( ArrayTests.instatiateShort, null, "Array short instantiate", 10 ) );
 			trace( ptest( ArrayTests.push, null, "Array push", 10 ) );
@@ -102,12 +108,27 @@ package
 		 */
 		private function vectorTests():void
 		{
+			trace( "------------------------------------------------- VECTOR TESTS -----------------------------------------------" );
 			trace( ptest( VectorTests.instatiateNormal, null, "Vector normal instantiate", 10 ) );
 			trace( ptest( VectorTests.instatiateShort, null, "Vector short instantiate", 10 ) );
 			trace( ptest( VectorTests.push, null, "Vector push", 10 ) );
 			trace( ptest( VectorTests.unshift, null, "Vector unshift", 10 ) );
 			trace( ptest( VectorTests.shift, null, "Vector shift", 10 ) );
 			trace( ptest( VectorTests.indexOf, null, "Vector indexOf", 10 ) );
+			trace( "--------------------------------------------------------------------------------------------------------------" );
+		}
+		
+		/**
+		 * Tests of Vector
+		 */
+		private function loopTests():void
+		{
+			trace( "------------------------------------------------ LOOP TESTS --------------------------------------------------" );
+			trace( ptest( LoopTests.whileLoop, null, "Loop while", 10 ) );
+			trace( ptest( LoopTests.doWhileLoop, null, "Loop doWhile", 10 ) );
+			trace( ptest( LoopTests.forLoop, null, "Loop for", 10 ) );
+			trace( ptest( LoopTests.forInLoop, null, "Loop forInLoop", 10 ) );
+			trace( ptest( LoopTests.forEachInLoop, null, "Loop forEachInLoop", 10 ) );
 			trace( "--------------------------------------------------------------------------------------------------------------" );
 		}
 		
