@@ -13,6 +13,18 @@ package hu.vizoli.performancetest
 		}
 		
 		/**
+		 * Instantiate test
+		 */
+		public static function instantiate():void 
+		{
+			var l:int = CNumbers.LOOPS;
+			for ( var i:Number = 0; i < l; i++ )
+			{
+				testVar = CNumbers.INIT_NUMBER;
+			}
+		}
+		
+		/**
 		 * Addition test
 		 */
 		public static function addition():void 

@@ -59,6 +59,7 @@ package
 		private function numberTests():void
 		{
 			trace( "-------------------------------------------------- NUMBER TESTS ----------------------------------------------" );
+			trace( ptest( NumberTest.instantiate, null, "Number instantiate", 10 ) );
 			trace( ptest( NumberTest.addition, null, "Number addition", 10 ) );
 			trace( ptest( NumberTest.subtraction, null, "Number subtraction", 10 ) );
 			trace( ptest( NumberTest.multiplication, null, "Number multiplication", 10 ) );
@@ -98,8 +99,8 @@ package
 		private function arrayTests():void
 		{
 			trace( "-------------------------------------------------- ARRAY TESTS -----------------------------------------------" );
-			trace( ptest( ArrayTests.instatiateNormal, null, "Array normal instantiate", 10 ) );
-			trace( ptest( ArrayTests.instatiateShort, null, "Array short instantiate", 10 ) );
+			trace( ptest( ArrayTests.instantiateNormal, null, "Array normal instantiate", 10 ) );
+			trace( ptest( ArrayTests.instantiateShort, null, "Array short instantiate", 10 ) );
 			trace( ptest( ArrayTests.push, null, "Array push", 10 ) );
 			trace( ptest( ArrayTests.unshift, null, "Array unshift", 10 ) );
 			trace( ptest( ArrayTests.shift, null, "Array shift", 10 ) );
@@ -113,8 +114,8 @@ package
 		private function vectorTests():void
 		{
 			trace( "------------------------------------------------- VECTOR TESTS -----------------------------------------------" );
-			trace( ptest( VectorTests.instatiateNormal, null, "Vector normal instantiate", 10 ) );
-			trace( ptest( VectorTests.instatiateShort, null, "Vector short instantiate", 10 ) );
+			trace( ptest( VectorTests.instantiateNormal, null, "Vector normal instantiate", 10 ) );
+			trace( ptest( VectorTests.instantiateShort, null, "Vector short instantiate", 10 ) );
 			trace( ptest( VectorTests.push, null, "Vector push", 10 ) );
 			trace( ptest( VectorTests.unshift, null, "Vector unshift", 10 ) );
 			trace( ptest( VectorTests.shift, null, "Vector shift", 10 ) );
@@ -142,8 +143,8 @@ package
 		private function objectTests():void
 		{
 			trace( "----------------------------------------------- OBJECT TESTS -------------------------------------------------" );
-			trace( ptest( ObjectTests.instatiateNormal, null, "Object normal instantiate", 10 ) );
-			trace( ptest( ObjectTests.instatiateShort, null, "Object short instantiate", 10 ) );
+			trace( ptest( ObjectTests.instantiateNormal, null, "Object normal instantiate", 10 ) );
+			trace( ptest( ObjectTests.instantiateShort, null, "Object short instantiate", 10 ) );
 			trace( ptest( ObjectTests.useWithNumber, null, "Object use with Number", 10 ) );
 			trace( ptest( ObjectTests.useWithString, null, "Object use with String", 10 ) );
 			trace( "--------------------------------------------------------------------------------------------------------------\n" );

@@ -16,7 +16,7 @@ package hu.vizoli.performancetest
 		/**
 		 * Normal instantiate test
 		 */
-		public static function instatiateNormal():void 
+		public static function instantiateNormal():void 
 		{
 			var l:int = CObjects.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
@@ -28,7 +28,7 @@ package hu.vizoli.performancetest
 		/**
 		 * Short instantiate test
 		 */
-		public static function instatiateShort():void 
+		public static function instantiateShort():void 
 		{
 			var l:int = CObjects.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
