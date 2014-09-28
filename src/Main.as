@@ -73,6 +73,7 @@ package
 		private function intTests():void
 		{
 			trace( "--------------------------------------------------- INT TESTS ------------------------------------------------" );
+			trace( ptest( IntTests.instantiate, null, "int instantiate", 10 ) );
 			trace( ptest( IntTests.addition, null, "int addition", 10 ) );
 			trace( ptest( IntTests.subtraction, null, "int subtraction", 10 ) );
 			trace( ptest( IntTests.multiplication, null, "int multiplication", 10 ) );
@@ -86,6 +87,7 @@ package
 		private function uintTests():void
 		{
 			trace( "-------------------------------------------------- UINT TESTS ------------------------------------------------" );
+			trace( ptest( UintTest.instantiate, null, "uint instantiate", 10 ) );
 			trace( ptest( UintTest.addition, null, "uint addition", 10 ) );
 			trace( ptest( UintTest.subtraction, null, "uint subtraction", 10 ) );
 			trace( ptest( UintTest.multiplication, null, "uint multiplication", 10 ) );
