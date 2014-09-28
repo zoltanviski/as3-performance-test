@@ -43,12 +43,12 @@ package
 		{
 			this.removeEventListener( Event.ADDED_TO_STAGE, this.init );
 			
-			//this.numberTests();
-			//this.intTests();
-			//this.uintTests();
-			//this.arrayTests();
-			//this.vectorTests();
-			//this.loopTests();
+			this.numberTests();
+			this.intTests();
+			this.uintTests();
+			this.arrayTests();
+			this.vectorTests();
+			this.loopTests();
 			this.objectTests();
 			this.asteriskTests();
 		}
@@ -63,7 +63,7 @@ package
 			trace( ptest( NumberTest.subtraction, null, "Number subtraction", 10 ) );
 			trace( ptest( NumberTest.multiplication, null, "Number multiplication", 10 ) );
 			trace( ptest( NumberTest.division, null, "Number division", 10 ) );
-			trace( "--------------------------------------------------------------------------------------------------------------" );
+			trace( "--------------------------------------------------------------------------------------------------------------\n" );
 		}
 		
 		/**
@@ -76,7 +76,7 @@ package
 			trace( ptest( IntTests.subtraction, null, "int subtraction", 10 ) );
 			trace( ptest( IntTests.multiplication, null, "int multiplication", 10 ) );
 			trace( ptest( IntTests.division, null, "int division", 10 ) );
-			trace( "--------------------------------------------------------------------------------------------------------------" );
+			trace( "--------------------------------------------------------------------------------------------------------------\n" );
 		}
 		
 		/**
@@ -89,7 +89,7 @@ package
 			trace( ptest( UintTest.subtraction, null, "uint subtraction", 10 ) );
 			trace( ptest( UintTest.multiplication, null, "uint multiplication", 10 ) );
 			trace( ptest( UintTest.division, null, "uint division", 10 ) );
-			trace( "--------------------------------------------------------------------------------------------------------------" );
+			trace( "--------------------------------------------------------------------------------------------------------------\n" );
 		}
 		
 		/**
@@ -104,7 +104,7 @@ package
 			trace( ptest( ArrayTests.unshift, null, "Array unshift", 10 ) );
 			trace( ptest( ArrayTests.shift, null, "Array shift", 10 ) );
 			trace( ptest( ArrayTests.indexOf, null, "Array indexOf", 10 ) );
-			trace( "--------------------------------------------------------------------------------------------------------------" );
+			trace( "--------------------------------------------------------------------------------------------------------------\n" );
 		}
 		
 		/**
@@ -119,7 +119,7 @@ package
 			trace( ptest( VectorTests.unshift, null, "Vector unshift", 10 ) );
 			trace( ptest( VectorTests.shift, null, "Vector shift", 10 ) );
 			trace( ptest( VectorTests.indexOf, null, "Vector indexOf", 10 ) );
-			trace( "--------------------------------------------------------------------------------------------------------------" );
+			trace( "--------------------------------------------------------------------------------------------------------------\n" );
 		}
 		
 		/**
@@ -133,7 +133,7 @@ package
 			trace( ptest( LoopTests.forLoop, null, "Loop for", 10 ) );
 			trace( ptest( LoopTests.forInLoop, null, "Loop forInLoop", 10 ) );
 			trace( ptest( LoopTests.forEachInLoop, null, "Loop forEachInLoop", 10 ) );
-			trace( "--------------------------------------------------------------------------------------------------------------" );
+			trace( "--------------------------------------------------------------------------------------------------------------\n" );
 		}
 		
 		/**
@@ -146,7 +146,7 @@ package
 			trace( ptest( ObjectTests.instatiateShort, null, "Object short instantiate", 10 ) );
 			trace( ptest( ObjectTests.useWithNumber, null, "Object use with Number", 10 ) );
 			trace( ptest( ObjectTests.useWithString, null, "Object use with String", 10 ) );
-			trace( "--------------------------------------------------------------------------------------------------------------" );
+			trace( "--------------------------------------------------------------------------------------------------------------\n" );
 		}
 		
 		/**
@@ -159,7 +159,7 @@ package
 			trace( ptest( AsteriskTests.instatiateShort, null, "Asterisk short instantiate", 10 ) );
 			trace( ptest( AsteriskTests.useWithNumber, null, "Asterisk use with Number", 10 ) );
 			trace( ptest( AsteriskTests.useWithString, null, "Asterisk use with String", 10 ) );
-			trace( "--------------------------------------------------------------------------------------------------------------" );
+			trace( "--------------------------------------------------------------------------------------------------------------\n" );
 		}
 		
 	}

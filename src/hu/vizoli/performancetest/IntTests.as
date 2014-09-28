@@ -68,6 +68,7 @@ package hu.vizoli.performancetest
 				testVar /= testVar;
 			}
 		}
+		
 	}
 
 }
