@@ -9,6 +9,7 @@ package
 	import hu.vizoli.performancetest.IntTests;
 	import hu.vizoli.performancetest.NumberTest;
 	import hu.vizoli.performancetest.UintTest;
+	import hu.vizoli.performancetest.VectorTests;
 	
 	/**
 	 * The main of the flash performance test project
@@ -39,47 +40,75 @@ package
 		{
 			this.removeEventListener( Event.ADDED_TO_STAGE, this.init );
 			
-			//this.numbersTests();
-			this.listsTests();
+			//this.numberTests();
+			//this.intTests();
+			//this.uintTests();
+			this.arrayTests();
+			this.vectorTests();
 		}
 		
 		/**
-		 * Tests of numbers
+		 * Tests of Number
 		 */
-		private function numbersTests():void
+		private function numberTests():void
+		{
+			trace( ptest( NumberTest.addition, null, "Number addition", 10 ) );
+			trace( ptest( NumberTest.subtraction, null, "Number subtraction", 10 ) );
+			trace( ptest( NumberTest.multiplication, null, "Number multiplication", 10 ) );
+			trace( ptest( NumberTest.division, null, "Number division", 10 ) );
+			trace( "--------------------------------------------------------------------------------------------------------------" );
+		}
+		
+		/**
+		 * Tests of int
+		 */
+		private function intTests():void
 		{
 			trace( ptest( IntTests.addition, null, "int addition", 10 ) );
-			trace( ptest( UintTest.addition, null, "uint addition", 10 ) );
-			trace( ptest( NumberTest.addition, null, "Number addition", 10 ) );
-			trace( "--------------------------------------------------------------------------------------------------------------" )
-			
 			trace( ptest( IntTests.subtraction, null, "int subtraction", 10 ) );
-			trace( ptest( UintTest.subtraction, null, "uint subtraction", 10 ) );
-			trace( ptest( NumberTest.subtraction, null, "Number subtraction", 10 ) );
-			trace( "--------------------------------------------------------------------------------------------------------------" )
-			
 			trace( ptest( IntTests.multiplication, null, "int multiplication", 10 ) );
-			trace( ptest( UintTest.multiplication, null, "uint multiplication", 10 ) );
-			trace( ptest( NumberTest.multiplication, null, "Number multiplication", 10 ) );
-			trace( "--------------------------------------------------------------------------------------------------------------" )
-			
 			trace( ptest( IntTests.division, null, "int division", 10 ) );
-			trace( ptest( UintTest.division, null, "uint division", 10 ) );
-			trace( ptest( NumberTest.division, null, "Number division", 10 ) );
-			trace( "--------------------------------------------------------------------------------------------------------------" )
+			trace( "--------------------------------------------------------------------------------------------------------------" );
 		}
 		
 		/**
-		 * Tests of numbers
+		 * Tests of int
 		 */
-		private function listsTests():void
+		private function uintTests():void
+		{
+			trace( ptest( UintTest.addition, null, "uint addition", 10 ) );
+			trace( ptest( UintTest.subtraction, null, "uint subtraction", 10 ) );
+			trace( ptest( UintTest.multiplication, null, "uint multiplication", 10 ) );
+			trace( ptest( UintTest.division, null, "uint division", 10 ) );
+			trace( "--------------------------------------------------------------------------------------------------------------" );
+		}
+		
+		/**
+		 * Tests of Array
+		 */
+		private function arrayTests():void
 		{
 			trace( ptest( ArrayTests.instatiateNormal, null, "Array normal instantiate", 10 ) );
 			trace( ptest( ArrayTests.instatiateShort, null, "Array short instantiate", 10 ) );
 			trace( ptest( ArrayTests.push, null, "Array push", 10 ) );
 			trace( ptest( ArrayTests.unshift, null, "Array unshift", 10 ) );
 			trace( ptest( ArrayTests.shift, null, "Array shift", 10 ) );
-			trace( "--------------------------------------------------------------------------------------------------------------" )
+			trace( ptest( ArrayTests.indexOf, null, "Array indexOf", 10 ) );
+			trace( "--------------------------------------------------------------------------------------------------------------" );
+		}
+		
+		/**
+		 * Tests of Vector
+		 */
+		private function vectorTests():void
+		{
+			trace( ptest( VectorTests.instatiateNormal, null, "Vector normal instantiate", 10 ) );
+			trace( ptest( VectorTests.instatiateShort, null, "Vector short instantiate", 10 ) );
+			trace( ptest( VectorTests.push, null, "Vector push", 10 ) );
+			trace( ptest( VectorTests.unshift, null, "Vector unshift", 10 ) );
+			trace( ptest( VectorTests.shift, null, "Vector shift", 10 ) );
+			trace( ptest( VectorTests.indexOf, null, "Vector indexOf", 10 ) );
+			trace( "--------------------------------------------------------------------------------------------------------------" );
 		}
 		
 	}

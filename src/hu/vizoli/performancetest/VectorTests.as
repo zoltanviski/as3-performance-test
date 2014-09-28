@@ -1,16 +1,17 @@
 package hu.vizoli.performancetest 
 {
-	import hu.vizoli.performancetest.constant.CArrays;
+	import hu.vizoli.performancetest.constant.CVectors;
+	import hu.vizoli.performancetest.constant.CVectors;
 	
 	/**
-	 * Test the Array
+	 * Test the Vector
 	 * 
 	 * @author vizoli
 	 */
-	public class ArrayTests 
+	public class VectorTests 
 	{
 		{
-			public static var testVar:Array;
+			public static var testVar:Vector.<int>;
 		}
 		
 		/**
@@ -18,10 +19,10 @@ package hu.vizoli.performancetest
 		 */
 		public static function instatiateNormal():void 
 		{
-			var l:int = CArrays.LOOPS;
+			var l:int = CVectors.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
 			{
-				testVar = new Array();
+				testVar = new Vector.<int>;
 			}
 		}
 		
@@ -30,10 +31,10 @@ package hu.vizoli.performancetest
 		 */
 		public static function instatiateShort():void 
 		{
-			var l:int = CArrays.LOOPS;
+			var l:int = CVectors.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
 			{
-				testVar = [ ];
+				testVar = new <int>[];
 			}
 		}
 		
@@ -42,9 +43,9 @@ package hu.vizoli.performancetest
 		 */
 		public static function push():void 
 		{
-			testVar = [ ];
+			testVar = new <int>[];
 			
-			var l:int = CArrays.LOOPS;
+			var l:int = CVectors.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
 			{
 				testVar.push( i );
@@ -56,9 +57,9 @@ package hu.vizoli.performancetest
 		 */
 		public static function unshift():void 
 		{
-			testVar = [ ];
+			testVar = new <int>[];
 			
-			var l:int = CArrays.LOOPS;
+			var l:int = CVectors.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
 			{
 				testVar.unshift( i );
@@ -70,9 +71,9 @@ package hu.vizoli.performancetest
 		 */
 		public static function shift():void 
 		{
-			testVar = [ ];
+			testVar = new <int>[];
 			
-			var l:int = CArrays.LOOPS;
+			var l:int = CVectors.LOOPS;
 			var i:int;
 			for ( i = 0; i < l; i++ )
 			{
@@ -90,15 +91,15 @@ package hu.vizoli.performancetest
 		 */
 		public static function indexOf():void 
 		{
-			testVar = [ ];
+			testVar = new <int>[];
 			
-			var l:int = CArrays.LOOPS;
+			var l:int = CVectors.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
 			{
 				testVar.push( i );
 			}
 			
-			testVar.indexOf( CArrays.LOOPS / 2 )
+			testVar.indexOf( CVectors.LOOPS / 2 );
 		}
 		
 	}

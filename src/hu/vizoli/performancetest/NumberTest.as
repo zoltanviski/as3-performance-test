@@ -8,13 +8,16 @@ package hu.vizoli.performancetest
 	 */
 	public class NumberTest 
 	{
+		{
+			public static var testVar:Number;
+		}
 		
 		/**
 		 * Addition test
 		 */
 		public static function addition():void 
 		{
-			var testVar:Number = CNumbers.INIT_NUMBER;
+			testVar = CNumbers.INIT_NUMBER;
 			
 			var l:Number = 1000000;
 			for ( var i:Number = 0; i < l; i++ )
@@ -28,7 +31,7 @@ package hu.vizoli.performancetest
 		 */
 		public static function subtraction():void 
 		{
-			var testVar:Number = CNumbers.INIT_NUMBER;
+			testVar = CNumbers.INIT_NUMBER;
 			
 			var l:Number = 1000000;
 			for ( var i:Number = 0; i < l; i++ )
@@ -42,7 +45,7 @@ package hu.vizoli.performancetest
 		 */
 		public static function multiplication():void 
 		{
-			var testVar:Number = CNumbers.INIT_NUMBER;
+			testVar = CNumbers.INIT_NUMBER;
 			
 			var l:Number = 1000000;
 			for ( var i:Number = 0; i < l; i++ )
@@ -56,7 +59,7 @@ package hu.vizoli.performancetest
 		 */
 		public static function division():void 
 		{
-			var testVar:Number = CNumbers.INIT_NUMBER;
+			testVar = CNumbers.INIT_NUMBER;
 			
 			var l:Number = 1000000;
 			for ( var i:Number = 0; i < l; i++ )

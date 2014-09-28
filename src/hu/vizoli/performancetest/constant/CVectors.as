@@ -1,11 +1,11 @@
 package hu.vizoli.performancetest.constant 
 {
 	/**
-	 * Constants of Arrays
+	 * Constants of Vectors
 	 * 
 	 * @author vizoli
 	 */
-	public class CArrays 
+	public class CVectors 
 	{
 		
 		public static const LOOPS:int = 50000;

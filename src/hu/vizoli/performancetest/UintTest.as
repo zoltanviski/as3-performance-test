@@ -9,13 +9,16 @@ package hu.vizoli.performancetest
 	 */
 	public class UintTest 
 	{
+		{
+			public static var testVar:uint;
+		}
 		
 		/**
 		 * Addition test
 		 */
 		public static function addition():void 
 		{
-			var testVar:uint = CUints.INIT_NUMBER;
+			testVar = CUints.INIT_NUMBER;
 			
 			var l:uint = CUints.LOOPS;
 			for ( var i:uint = 0; i < l; i++ )
@@ -29,7 +32,7 @@ package hu.vizoli.performancetest
 		 */
 		public static function subtraction():void 
 		{
-			var testVar:uint = CUints.INIT_NUMBER;
+			testVar = CUints.INIT_NUMBER;
 			
 			var l:uint = CUints.LOOPS;
 			for ( var i:uint = 0; i < l; i++ )
@@ -43,7 +46,7 @@ package hu.vizoli.performancetest
 		 */
 		public static function multiplication():void 
 		{
-			var testVar:uint = CUints.INIT_NUMBER;
+			testVar = CUints.INIT_NUMBER;
 			
 			var l:uint = CUints.LOOPS;
 			for ( var i:uint = 0; i < l; i++ )
@@ -57,7 +60,7 @@ package hu.vizoli.performancetest
 		 */
 		public static function division():void 
 		{
-			var testVar:uint = CUints.INIT_NUMBER;
+			testVar = CUints.INIT_NUMBER;
 			
 			var l:uint = CUints.LOOPS;
 			for ( var i:uint = 0; i < l; i++ )
