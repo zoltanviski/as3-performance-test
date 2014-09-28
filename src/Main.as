@@ -4,6 +4,7 @@ package
 	import com.gskinner.performance.ptest;
 	import flash.display.Sprite;
 	import flash.events.Event;
+	import hu.vizoli.performancetest.ArrayTests;
 	import hu.vizoli.performancetest.IntTests;
 	import hu.vizoli.performancetest.IntTests;
 	import hu.vizoli.performancetest.NumberTest;
@@ -39,6 +40,7 @@ package
 			this.removeEventListener( Event.ADDED_TO_STAGE, this.init );
 			
 			this.numbersTests();
+			this.listsTests();
 		}
 		
 		/**
@@ -64,6 +66,15 @@ package
 			trace( ptest( IntTests.division, null, "int division", 10 ) );
 			trace( ptest( UintTest.division, null, "uint division", 10 ) );
 			trace( ptest( NumberTest.division, null, "Number division", 10 ) );
+			trace( "--------------------------------------------------------------------------------------------------------------" )
+		}
+		
+		/**
+		 * Tests of numbers
+		 */
+		private function listsTests():void
+		{
+			trace( ptest( ArrayTests.push, null, "Array push", 10 ) );
 			trace( "--------------------------------------------------------------------------------------------------------------" )
 		}
 		
