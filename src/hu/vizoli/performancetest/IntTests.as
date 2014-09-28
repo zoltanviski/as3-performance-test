@@ -1,6 +1,7 @@
 package hu.vizoli.performancetest 
 {
 	import hu.vizoli.performancetest.constant.CInts;
+	
 	/**
 	 * Test the int primitive
 	 * 

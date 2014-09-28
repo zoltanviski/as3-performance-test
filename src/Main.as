@@ -39,7 +39,7 @@ package
 		{
 			this.removeEventListener( Event.ADDED_TO_STAGE, this.init );
 			
-			this.numbersTests();
+			//this.numbersTests();
 			this.listsTests();
 		}
 		
@@ -74,7 +74,11 @@ package
 		 */
 		private function listsTests():void
 		{
+			trace( ptest( ArrayTests.instatiateNormal, null, "Array normal instantiate", 10 ) );
+			trace( ptest( ArrayTests.instatiateShort, null, "Array short instantiate", 10 ) );
 			trace( ptest( ArrayTests.push, null, "Array push", 10 ) );
+			trace( ptest( ArrayTests.unshift, null, "Array unshift", 10 ) );
+			trace( ptest( ArrayTests.shift, null, "Array shift", 10 ) );
 			trace( "--------------------------------------------------------------------------------------------------------------" )
 		}
 		
