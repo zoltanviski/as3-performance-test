@@ -5,10 +5,12 @@ package
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import hu.vizoli.performancetest.ArrayTests;
+	import hu.vizoli.performancetest.AsteriskTests;
 	import hu.vizoli.performancetest.IntTests;
 	import hu.vizoli.performancetest.IntTests;
 	import hu.vizoli.performancetest.LoopTests;
 	import hu.vizoli.performancetest.NumberTest;
+	import hu.vizoli.performancetest.ObjectTests;
 	import hu.vizoli.performancetest.UintTest;
 	import hu.vizoli.performancetest.VectorTests;
 	
@@ -46,7 +48,9 @@ package
 			//this.uintTests();
 			//this.arrayTests();
 			//this.vectorTests();
-			this.loopTests();
+			//this.loopTests();
+			this.objectTests();
+			this.asteriskTests();
 		}
 		
 		/**
@@ -129,6 +133,32 @@ package
 			trace( ptest( LoopTests.forLoop, null, "Loop for", 10 ) );
 			trace( ptest( LoopTests.forInLoop, null, "Loop forInLoop", 10 ) );
 			trace( ptest( LoopTests.forEachInLoop, null, "Loop forEachInLoop", 10 ) );
+			trace( "--------------------------------------------------------------------------------------------------------------" );
+		}
+		
+		/**
+		 * Tests of Object
+		 */
+		private function objectTests():void
+		{
+			trace( "----------------------------------------------- OBJECT TESTS -------------------------------------------------" );
+			trace( ptest( ObjectTests.instatiateNormal, null, "Object normal instantiate", 10 ) );
+			trace( ptest( ObjectTests.instatiateShort, null, "Object short instantiate", 10 ) );
+			trace( ptest( ObjectTests.useWithNumber, null, "Object use with Number", 10 ) );
+			trace( ptest( ObjectTests.useWithString, null, "Object use with String", 10 ) );
+			trace( "--------------------------------------------------------------------------------------------------------------" );
+		}
+		
+		/**
+		 * Tests of Asterisk (*)
+		 */
+		private function asteriskTests():void
+		{
+			trace( "---------------------------------------------- ASTERISK TESTS ------------------------------------------------" );
+			trace( ptest( AsteriskTests.instatiateNormal, null, "Asterisk normal instantiate", 10 ) );
+			trace( ptest( AsteriskTests.instatiateShort, null, "Asterisk short instantiate", 10 ) );
+			trace( ptest( AsteriskTests.useWithNumber, null, "Asterisk use with Number", 10 ) );
+			trace( ptest( AsteriskTests.useWithString, null, "Asterisk use with String", 10 ) );
 			trace( "--------------------------------------------------------------------------------------------------------------" );
 		}
 		
