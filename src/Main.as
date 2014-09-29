@@ -11,6 +11,7 @@ package
 	import hu.vizoli.performancetest.LoopTests;
 	import hu.vizoli.performancetest.NumberTest;
 	import hu.vizoli.performancetest.ObjectTests;
+	import hu.vizoli.performancetest.StringTests;
 	import hu.vizoli.performancetest.UintTest;
 	import hu.vizoli.performancetest.VectorTests;
 	
@@ -43,14 +44,15 @@ package
 		{
 			this.removeEventListener( Event.ADDED_TO_STAGE, this.init );
 			
-			this.numberTests();
-			this.intTests();
-			this.uintTests();
-			this.arrayTests();
-			this.vectorTests();
-			this.loopTests();
-			this.objectTests();
-			this.asteriskTests();
+			//this.numberTests();
+			//this.intTests();
+			//this.uintTests();
+			//this.arrayTests();
+			//this.vectorTests();
+			//this.loopTests();
+			//this.objectTests();
+			//this.asteriskTests();
+			this.stringTests();
 		}
 		
 		/**
@@ -162,6 +164,17 @@ package
 			trace( ptest( AsteriskTests.instatiateShort, null, "Asterisk short instantiate", 10 ) );
 			trace( ptest( AsteriskTests.useWithNumber, null, "Asterisk use with Number", 10 ) );
 			trace( ptest( AsteriskTests.useWithString, null, "Asterisk use with String", 10 ) );
+			trace( "--------------------------------------------------------------------------------------------------------------\n" );
+		}
+		
+		/**
+		 * Tests of String
+		 */
+		private function stringTests():void
+		{
+			trace( "----------------------------------------------- String TESTS -------------------------------------------------" );
+			trace( ptest( StringTests.stringsWithPlusConcat, null, "String concat with plus", 10 ) );
+			trace( ptest( StringTests.stringsWithConcatMethod, null, "String concat with concat method", 10 ) );
 			trace( "--------------------------------------------------------------------------------------------------------------\n" );
 		}
 		
