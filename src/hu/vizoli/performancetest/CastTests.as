@@ -1,6 +1,7 @@
 package hu.vizoli.performancetest 
 {
 	import hu.vizoli.performancetest.constant.CCasts;
+	import hu.vizoli.performancetest.helper.DummyVO;
 	
 	/**
 	 * Test the Casts
@@ -25,7 +26,7 @@ package hu.vizoli.performancetest
 		}
 		
 		/**
-		 * String casting to Number with as Type( x )
+		 * String casting to Number with Type( x )
 		 */
 		public static function stringToNumberWithParas():void 
 		{
@@ -35,6 +36,34 @@ package hu.vizoli.performancetest
 			for ( var i:int = 0; i < l; i++ )
 			{
 				Number( testVar );
+			}
+		}
+		
+		/**
+		 * Dummy class cast with as operator
+		 */
+		public static function dummyClassCastWithAs():void 
+		{
+			var testVar:DummyVO = new DummyVO();
+			
+			var l:int = CCasts.LOOPS;
+			for ( var i:int = 0; i < l; i++ )
+			{
+				( testVar as DummyVO );
+			}
+		}
+		
+		/**
+		 * Dummy class cast with Type( x )
+		 */
+		public static function dummyClassCastWithParas():void 
+		{
+			var testVar:DummyVO = new DummyVO();
+			
+			var l:int = CCasts.LOOPS;
+			for ( var i:int = 0; i < l; i++ )
+			{
+				DummyVO( testVar );
 			}
 		}
 	

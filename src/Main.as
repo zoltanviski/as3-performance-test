@@ -190,6 +190,8 @@ package
 			trace( "----------------------------------------------- CASTS TESTS --------------------------------------------------" );
 			trace( ptest( CastTests.stringToNumberWithAs, null, "Casts String to Number with as", 10 ) );
 			trace( ptest( CastTests.stringToNumberWithParas, null, "Casts String to Number with paras", 10 ) );
+			trace( ptest( CastTests.dummyClassCastWithAs, null, "Casts Dummy class cast with as operator", 10 ) );
+			trace( ptest( CastTests.dummyClassCastWithParas, null, "Casts Dummy class cast with Type( x )", 10 ) );
 			trace( "--------------------------------------------------------------------------------------------------------------\n" );
 		}
 		
