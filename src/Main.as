@@ -173,8 +173,10 @@ package
 		private function stringTests():void
 		{
 			trace( "----------------------------------------------- String TESTS -------------------------------------------------" );
-			trace( ptest( StringTests.stringsWithPlusConcat, null, "String concat with plus", 10 ) );
-			trace( ptest( StringTests.stringsWithConcatMethod, null, "String concat with concat method", 10 ) );
+			trace( ptest( StringTests.concatWithPlusCharacter, null, "String concat with plus", 10 ) );
+			trace( ptest( StringTests.concatWithConcatMethod, null, "String concat with concat method", 10 ) );
+			trace( ptest( StringTests.replaceWithReplaceMethod, null, "String replace with replace method", 10 ) );
+			trace( ptest( StringTests.replaceWithSplitJoin, null, "String replace with split join", 10 ) );
 			trace( "--------------------------------------------------------------------------------------------------------------\n" );
 		}
 		
