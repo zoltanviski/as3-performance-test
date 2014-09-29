@@ -6,6 +6,7 @@ package
 	import flash.events.Event;
 	import hu.vizoli.performancetest.ArrayTests;
 	import hu.vizoli.performancetest.AsteriskTests;
+	import hu.vizoli.performancetest.CastTests;
 	import hu.vizoli.performancetest.IntTests;
 	import hu.vizoli.performancetest.IntTests;
 	import hu.vizoli.performancetest.LoopTests;
@@ -52,7 +53,8 @@ package
 			//this.loopTests();
 			//this.objectTests();
 			//this.asteriskTests();
-			this.stringTests();
+			//this.stringTests();
+			this.castsTests();
 		}
 		
 		/**
@@ -172,11 +174,22 @@ package
 		 */
 		private function stringTests():void
 		{
-			trace( "----------------------------------------------- String TESTS -------------------------------------------------" );
+			trace( "----------------------------------------------- STRING TESTS -------------------------------------------------" );
 			trace( ptest( StringTests.concatWithPlusCharacter, null, "String concat with plus", 10 ) );
 			trace( ptest( StringTests.concatWithConcatMethod, null, "String concat with concat method", 10 ) );
 			trace( ptest( StringTests.replaceWithReplaceMethod, null, "String replace with replace method", 10 ) );
 			trace( ptest( StringTests.replaceWithSplitJoin, null, "String replace with split join", 10 ) );
+			trace( "--------------------------------------------------------------------------------------------------------------\n" );
+		}
+		
+		/**
+		 * Tests of Casts
+		 */
+		private function castsTests():void
+		{
+			trace( "----------------------------------------------- CASTS TESTS --------------------------------------------------" );
+			trace( ptest( CastTests.stringToNumberWithAs, null, "Casts String to Number with as", 10 ) );
+			trace( ptest( CastTests.stringToNumberWithParas, null, "Casts String to Number with paras", 10 ) );
 			trace( "--------------------------------------------------------------------------------------------------------------\n" );
 		}
 		
