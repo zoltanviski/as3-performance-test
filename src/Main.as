@@ -7,6 +7,7 @@ package
 	import hu.vizoli.performancetest.ArrayTests;
 	import hu.vizoli.performancetest.AsteriskTests;
 	import hu.vizoli.performancetest.CastTests;
+	import hu.vizoli.performancetest.ConditionsTest;
 	import hu.vizoli.performancetest.IntTests;
 	import hu.vizoli.performancetest.IntTests;
 	import hu.vizoli.performancetest.LoopTests;
@@ -54,7 +55,8 @@ package
 			//this.objectTests();
 			//this.asteriskTests();
 			//this.stringTests();
-			this.castsTests();
+			//this.castsTests();
+			this.conditionsTests();
 		}
 		
 		/**
@@ -192,6 +194,24 @@ package
 			trace( ptest( CastTests.stringToNumberWithParas, null, "Casts String to Number with paras", 10 ) );
 			trace( ptest( CastTests.dummyClassCastWithAs, null, "Casts Dummy class cast with as operator", 10 ) );
 			trace( ptest( CastTests.dummyClassCastWithParas, null, "Casts Dummy class cast with Type( x )", 10 ) );
+			trace( "--------------------------------------------------------------------------------------------------------------\n" );
+		}
+		
+		/**
+		 * Tests of Conditions
+		 */
+		private function conditionsTests():void
+		{
+			trace( "--------------------------------------------- CONDITIONS TESTS -----------------------------------------------" );
+			trace( ptest( ConditionsTest.ternarySimple, null, "Conditions ternary simple", 10 ) );
+			trace( ptest( ConditionsTest.ternarySimpleWithElse, null, "Conditions ternary simple with else", 10 ) );
+			trace( ptest( ConditionsTest.ternaryComplexWithElse, null, "Conditions ternary complex with else", 10 ) );
+			trace( ptest( ConditionsTest.ifSimple, null, "Conditions if simple", 10 ) );
+			trace( ptest( ConditionsTest.ifSimpleWithElse, null, "Conditions if simple with else", 10 ) );
+			trace( ptest( ConditionsTest.ifComplexWithElse, null, "Conditions if complex with else", 10 ) );
+			trace( ptest( ConditionsTest.switchSimple, null, "Conditions switch simple", 10 ) );
+			trace( ptest( ConditionsTest.switchSimpleWithDefault, null, "Conditions switch simple with default", 10 ) );
+			trace( ptest( ConditionsTest.switchComplexWithdefault, null, "Conditions switch complex with default", 10 ) );
 			trace( "--------------------------------------------------------------------------------------------------------------\n" );
 		}
 		
