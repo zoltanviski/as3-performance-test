@@ -7,7 +7,7 @@ package hu.vizoli.performancetest
 	 * 
 	 * @author vizoli
 	 */
-	public class ConditionsTest 
+	public class ConditionTests 
 	{
 		{
 			public static var testVar:int = 5;

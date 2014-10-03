@@ -7,7 +7,7 @@ package hu.vizoli.performancetest
 	 * 
 	 * @author vizoli
 	 */
-	public class UintTest 
+	public class UintTests 
 	{
 		{
 			public static var testVar:uint;

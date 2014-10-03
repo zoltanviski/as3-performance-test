@@ -6,7 +6,7 @@ package hu.vizoli.performancetest
 	 * 
 	 * @author vizoli
 	 */
-	public class NumberTest 
+	public class NumberTests 
 	{
 		{
 			public static var testVar:Number;

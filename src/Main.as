@@ -2,19 +2,21 @@ package
 {
 	import com.gskinner.performance.PerformanceTest;
 	import com.gskinner.performance.ptest;
+	import flash.accessibility.AccessibilityProperties;
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import hu.vizoli.performancetest.ArrayTests;
 	import hu.vizoli.performancetest.AsteriskTests;
 	import hu.vizoli.performancetest.CastTests;
-	import hu.vizoli.performancetest.ConditionsTest;
+	import hu.vizoli.performancetest.ConditionTests;
 	import hu.vizoli.performancetest.IntTests;
 	import hu.vizoli.performancetest.IntTests;
 	import hu.vizoli.performancetest.LoopTests;
-	import hu.vizoli.performancetest.NumberTest;
+	import hu.vizoli.performancetest.NumberTests;
 	import hu.vizoli.performancetest.ObjectTests;
+	import hu.vizoli.performancetest.PropertyAccessingTests;
 	import hu.vizoli.performancetest.StringTests;
-	import hu.vizoli.performancetest.UintTest;
+	import hu.vizoli.performancetest.UintTests;
 	import hu.vizoli.performancetest.VectorTests;
 	
 	/**
@@ -56,7 +58,8 @@ package
 			//this.asteriskTests();
 			//this.stringTests();
 			//this.castsTests();
-			this.conditionsTests();
+			//this.conditionsTests();
+			this.accessPropertyTests();
 		}
 		
 		/**
@@ -65,11 +68,11 @@ package
 		private function numberTests():void
 		{
 			trace( "-------------------------------------------------- NUMBER TESTS ----------------------------------------------" );
-			trace( ptest( NumberTest.instantiate, null, "Number instantiate", 10 ) );
-			trace( ptest( NumberTest.addition, null, "Number addition", 10 ) );
-			trace( ptest( NumberTest.subtraction, null, "Number subtraction", 10 ) );
-			trace( ptest( NumberTest.multiplication, null, "Number multiplication", 10 ) );
-			trace( ptest( NumberTest.division, null, "Number division", 10 ) );
+			trace( ptest( NumberTests.instantiate, null, "Number instantiate", 10 ) );
+			trace( ptest( NumberTests.addition, null, "Number addition", 10 ) );
+			trace( ptest( NumberTests.subtraction, null, "Number subtraction", 10 ) );
+			trace( ptest( NumberTests.multiplication, null, "Number multiplication", 10 ) );
+			trace( ptest( NumberTests.division, null, "Number division", 10 ) );
 			trace( "--------------------------------------------------------------------------------------------------------------\n" );
 		}
 		
@@ -93,11 +96,11 @@ package
 		private function uintTests():void
 		{
 			trace( "-------------------------------------------------- UINT TESTS ------------------------------------------------" );
-			trace( ptest( UintTest.instantiate, null, "uint instantiate", 10 ) );
-			trace( ptest( UintTest.addition, null, "uint addition", 10 ) );
-			trace( ptest( UintTest.subtraction, null, "uint subtraction", 10 ) );
-			trace( ptest( UintTest.multiplication, null, "uint multiplication", 10 ) );
-			trace( ptest( UintTest.division, null, "uint division", 10 ) );
+			trace( ptest( UintTests.instantiate, null, "uint instantiate", 10 ) );
+			trace( ptest( UintTests.addition, null, "uint addition", 10 ) );
+			trace( ptest( UintTests.subtraction, null, "uint subtraction", 10 ) );
+			trace( ptest( UintTests.multiplication, null, "uint multiplication", 10 ) );
+			trace( ptest( UintTests.division, null, "uint division", 10 ) );
 			trace( "--------------------------------------------------------------------------------------------------------------\n" );
 		}
 		
@@ -203,15 +206,33 @@ package
 		private function conditionsTests():void
 		{
 			trace( "--------------------------------------------- CONDITIONS TESTS -----------------------------------------------" );
-			trace( ptest( ConditionsTest.ternarySimple, null, "Conditions ternary simple", 10 ) );
-			trace( ptest( ConditionsTest.ternarySimpleWithElse, null, "Conditions ternary simple with else", 10 ) );
-			trace( ptest( ConditionsTest.ternaryComplexWithElse, null, "Conditions ternary complex with else", 10 ) );
-			trace( ptest( ConditionsTest.ifSimple, null, "Conditions if simple", 10 ) );
-			trace( ptest( ConditionsTest.ifSimpleWithElse, null, "Conditions if simple with else", 10 ) );
-			trace( ptest( ConditionsTest.ifComplexWithElse, null, "Conditions if complex with else", 10 ) );
-			trace( ptest( ConditionsTest.switchSimple, null, "Conditions switch simple", 10 ) );
-			trace( ptest( ConditionsTest.switchSimpleWithDefault, null, "Conditions switch simple with default", 10 ) );
-			trace( ptest( ConditionsTest.switchComplexWithdefault, null, "Conditions switch complex with default", 10 ) );
+			trace( ptest( ConditionTests.ternarySimple, null, "Conditions ternary simple", 10 ) );
+			trace( ptest( ConditionTests.ternarySimpleWithElse, null, "Conditions ternary simple with else", 10 ) );
+			trace( ptest( ConditionTests.ternaryComplexWithElse, null, "Conditions ternary complex with else", 10 ) );
+			trace( ptest( ConditionTests.ifSimple, null, "Conditions if simple", 10 ) );
+			trace( ptest( ConditionTests.ifSimpleWithElse, null, "Conditions if simple with else", 10 ) );
+			trace( ptest( ConditionTests.ifComplexWithElse, null, "Conditions if complex with else", 10 ) );
+			trace( ptest( ConditionTests.switchSimple, null, "Conditions switch simple", 10 ) );
+			trace( ptest( ConditionTests.switchSimpleWithDefault, null, "Conditions switch simple with default", 10 ) );
+			trace( ptest( ConditionTests.switchComplexWithdefault, null, "Conditions switch complex with default", 10 ) );
+			trace( "--------------------------------------------------------------------------------------------------------------\n" );
+		}
+	
+		/**
+		 * Tests of Accessing property
+		 */
+		private function accessPropertyTests():void
+		{
+			var testClass:PropertyAccessingTests = new PropertyAccessingTests();
+			
+			trace( "----------------------------------------- PROPERTY ACCESSING TESTS -------------------------------------------" );
+			trace( ptest( testClass.accessConst, null, "PropertyAccessingTests const", 10 ) );
+			trace( ptest( testClass.accessVariable, null, "PropertyAccessingTests variable", 10 ) );
+			trace( ptest( testClass.accessGetter, null, "PropertyAccessingTests getter", 10 ) );
+			trace( ptest( testClass.accessSetter, null, "PropertyAccessingTests setter", 10 ) );
+			trace( ptest( PropertyAccessingTests.accessStaticConst, null, "PropertyAccessingTests static const", 10 ) );
+			trace( ptest( PropertyAccessingTests.accessStaticVar, null, "PropertyAccessingTests static var", 10 ) );
+			trace( ptest( PropertyAccessingTests.accessStaticMethod, null, "PropertyAccessingTests static method", 10 ) );
 			trace( "--------------------------------------------------------------------------------------------------------------\n" );
 		}
 		
