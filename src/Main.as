@@ -59,10 +59,10 @@ package
 			//this.vectorTests();
 			//this.loopTests();
 			//this.objectTests();
-			this.asteriskTests();
-			this.stringTests();
-			this.castsTests();
-			this.conditionsTests();
+			//this.asteriskTests();
+			//this.stringTests();
+			//this.castsTests();
+			//this.conditionsTests();
 			this.accessPropertyTests();
 		}
 		

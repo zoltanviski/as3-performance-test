@@ -1,5 +1,6 @@
 package hu.vizoli.performancetest.view 
 {
+	import com.bit101.components.TextArea;
 	import flash.display.Sprite;
 	import flash.text.TextField;
 	import flash.text.TextFieldAutoSize;
@@ -11,7 +12,7 @@ package hu.vizoli.performancetest.view
 	 */
 	public class TestViewer extends Sprite 
 	{
-		private var _textField:TextField;
+		private var _textArea:TextArea;
 		
 		public function TestViewer() 
 		{
@@ -27,7 +28,7 @@ package hu.vizoli.performancetest.view
 		 */
 		public function log( log:String ):void
 		{
-			this._textField.appendText( log + "\n" );
+			this._textArea.text += log + "\n";
 		}
 		
 		/**
@@ -35,10 +36,9 @@ package hu.vizoli.performancetest.view
 		 */
 		private function createChildren():void
 		{
-			this._textField = new TextField();
-			this._textField.multiline = true;
-			this._textField.autoSize = TextFieldAutoSize.LEFT;
-			this.addChild( this._textField );
+			this._textArea = new TextArea();
+			this._textArea.width = 500;
+			this.addChild( this._textArea );
 		}
 		
 	}
