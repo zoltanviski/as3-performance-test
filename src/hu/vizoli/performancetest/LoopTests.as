@@ -1,26 +1,32 @@
 package hu.vizoli.performancetest 
 {
+	import com.gskinner.performance.AbstractTest;
 	import hu.vizoli.performancetest.constant.CLoops;
 	/**
 	 * ...
 	 * @author vizoli
 	 */
-	public class LoopTests 
+	public class LoopTests extends AbstractTest
 	{
-		{
-			private static var testVar:Object = {};
-			private static var j:int;
+		private var testVar:Object;
+		private var j:int;
 			
-			for ( j = 0; j < CLoops.LOOPS; j++ ) 
+		public function LoopTests() 
+		{
+			this.description = CLoops.DESCRIPTION;
+			
+			this.testVar = {};
+			
+			for ( this.j = 0; this.j < CLoops.LOOPS; this.j++ ) 
 			{ 
-				testVar[ j ] = j; 
+				this.testVar[ this.j ] = this.j; 
 			}
 		}
 		
 		/**
 		 * While test
 		 */
-		public static function whileLoop():void 
+		public function whileLoop():void 
 		{
 			var i:int = 0;
 			while ( i < CLoops.LOOPS ) 
@@ -32,7 +38,7 @@ package hu.vizoli.performancetest
 		/**
 		 * Do While test
 		 */
-		public static function doWhileLoop():void 
+		public function doWhileLoop():void 
 		{
 			var i:int = 0;
 			do
@@ -44,7 +50,7 @@ package hu.vizoli.performancetest
 		/**
 		 * For test
 		 */
-		public static function forLoop():void 
+		public function forLoop():void 
 		{
 			for ( var i:int = 0; i < CLoops.LOOPS; i++ ) 
 			{
@@ -55,9 +61,9 @@ package hu.vizoli.performancetest
 		/**
 		 * For in test
 		 */
-		public static function forInLoop():void 
+		public function forInLoop():void 
 		{
-			for ( var o:String in testVar )
+			for ( var o:String in this.testVar )
 			{ 
 				
 			}
@@ -66,9 +72,9 @@ package hu.vizoli.performancetest
 		/**
 		 * For each in test
 		 */
-		public static function forEachInLoop():void 
+		public function forEachInLoop():void 
 		{
-			for each( var o:int in testVar )
+			for each( var o:int in this.testVar )
 			{ 
 				 
 			}

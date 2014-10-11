@@ -1,5 +1,6 @@
 package hu.vizoli.performancetest 
 {
+	import com.gskinner.performance.AbstractTest;
 	import hu.vizoli.performancetest.constant.CPropertyAccessing;
 	
 	/**
@@ -7,7 +8,7 @@ package hu.vizoli.performancetest
 	 * 
 	 * @author vizoli
 	 */
-	public class PropertyAccessingTests 
+	public class PropertyAccessingTests extends AbstractTest
 	{
 		public static const STATIC_CONST:int = 1;
 		public static var STATIC_VAR:int = 1;
@@ -18,7 +19,7 @@ package hu.vizoli.performancetest
 		
 		public function PropertyAccessingTests() 
 		{
-			
+			this.description = CPropertyAccessing.DESCRIPTION;
 		}
 		
 		/**

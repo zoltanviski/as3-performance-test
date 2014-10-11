@@ -1,5 +1,6 @@
 package hu.vizoli.performancetest 
 {
+	import com.gskinner.performance.AbstractTest;
 	import hu.vizoli.performancetest.constant.CInts;
 	import hu.vizoli.performancetest.constant.CStrings;
 	
@@ -8,70 +9,75 @@ package hu.vizoli.performancetest
 	 * 
 	 * @author vizoli
 	 */
-	public class StringTests 
+	public class StringTests extends AbstractTest
 	{
+		private var testVar:String;
+		
+		public function StringTests():void 
 		{
-			public static var testVar:String;
+			this.description = CStrings.DESCRIPTION;
+			
+			this.testVar = CStrings.INIT_STRING;
 		}
 		
 		/**
 		 * Concat with plus character test
 		 */
-		public static function concatWithPlusCharacter():void 
+		public function concatWithPlusCharacter():void 
 		{
-			testVar = CStrings.INIT_STRING;
+			this.testVar = CStrings.INIT_STRING;
 			
 			var l:int = CStrings.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
 			{
-				testVar += CStrings.INIT_STRING;
+				this.testVar += CStrings.INIT_STRING;
 			}
 		}
 		
 		/**
 		 * Concat with concat method character test
 		 */
-		public static function concatWithConcatMethod():void 
+		public function concatWithConcatMethod():void 
 		{
-			testVar = CStrings.INIT_STRING;
+			this.testVar = CStrings.INIT_STRING;
 			
 			var l:int = CStrings.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
 			{
-				testVar = testVar.concat( CStrings.INIT_STRING );
+				this.testVar = this.testVar.concat( CStrings.INIT_STRING );
 			}
 		}
 		
 		/**
 		 * Replace with replace method
 		 */
-		public static function replaceWithReplaceMethod():void 
+		public function replaceWithReplaceMethod():void 
 		{
-			testVar = CStrings.INIT_STRING;
+			this.testVar = CStrings.INIT_STRING;
 			
 			var l:int = CStrings.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
 			{
-				testVar += CStrings.INIT_STRING;
+				this.testVar += CStrings.INIT_STRING;
 			}
 			
-			testVar.replace( String( CStrings.INIT_STRING ).charAt( 0 ), String( CStrings.INIT_STRING ).charAt( 1 ) ); 
+			this.testVar.replace( String( CStrings.INIT_STRING ).charAt( 0 ), String( CStrings.INIT_STRING ).charAt( 1 ) ); 
 		}
 		
 		/**
 		 * Replace with split..join
 		 */
-		public static function replaceWithSplitJoin():void 
+		public function replaceWithSplitJoin():void 
 		{
-			testVar = CStrings.INIT_STRING;
+			this.testVar = CStrings.INIT_STRING;
 			
 			var l:int = CStrings.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
 			{
-				testVar += CStrings.INIT_STRING;
+				this.testVar += CStrings.INIT_STRING;
 			}
 			
-			testVar.split( String( CStrings.INIT_STRING ).charAt( 0 ) ).join( String( CStrings.INIT_STRING ).charAt( 1 ) ); 
+			this.testVar.split( String( CStrings.INIT_STRING ).charAt( 0 ) ).join( String( CStrings.INIT_STRING ).charAt( 1 ) ); 
 		}
 		
 	}

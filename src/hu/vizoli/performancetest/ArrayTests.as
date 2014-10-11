@@ -1,5 +1,6 @@
 package hu.vizoli.performancetest 
 {
+	import com.gskinner.performance.AbstractTest;
 	import hu.vizoli.performancetest.constant.CArrays;
 	
 	/**
@@ -7,98 +8,101 @@ package hu.vizoli.performancetest
 	 * 
 	 * @author vizoli
 	 */
-	public class ArrayTests 
+	public class ArrayTests extends AbstractTest
 	{
+		private var testVar:Array;
+		
+		public function ArrayTests() 
 		{
-			public static var testVar:Array;
+			this.description = CArrays.DESCRIPTION;
 		}
 		
 		/**
 		 * Normal instantiate test
 		 */
-		public static function instantiateNormal():void 
+		public function instantiateNormal():void 
 		{
 			var l:int = CArrays.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
 			{
-				testVar = new Array();
+				this.testVar = new Array();
 			}
 		}
 		
 		/**
 		 * Short instantiate test
 		 */
-		public static function instantiateShort():void 
+		public function instantiateShort():void 
 		{
 			var l:int = CArrays.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
 			{
-				testVar = [ ];
+				this.testVar = [ ];
 			}
 		}
 		
 		/**
 		 * Push test
 		 */
-		public static function push():void 
+		public function push():void 
 		{
-			testVar = [ ];
+			this.testVar = [ ];
 			
 			var l:int = CArrays.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
 			{
-				testVar.push( i );
+				this.testVar.push( i );
 			}
 		}
 		
 		/**
 		 * Unshift test
 		 */
-		public static function unshift():void 
+		public function unshift():void 
 		{
-			testVar = [ ];
+			this.testVar = [ ];
 			
 			var l:int = CArrays.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
 			{
-				testVar.unshift( i );
+				this.testVar.unshift( i );
 			}
 		}
 		
 		/**
 		 * Shift test
 		 */
-		public static function shift():void 
+		public function shift():void 
 		{
-			testVar = [ ];
+			this.testVar = [ ];
 			
 			var l:int = CArrays.LOOPS;
 			var i:int;
 			for ( i = 0; i < l; i++ )
 			{
-				testVar.push( i );
+				this.testVar.push( i );
 			}
 			
 			for ( i = 0; i < l; i++ )
 			{
-				testVar.shift();
+				this.testVar.shift();
 			}
 		}
 		
 		/**
 		 * indexOf test
 		 */
-		public static function indexOf():void 
+		public function indexOf():void 
 		{
-			testVar = [ ];
+			this.testVar = [ ];
 			
 			var l:int = CArrays.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
 			{
-				testVar.push( i );
+				this.testVar.push( i );
 			}
 			
-			testVar.indexOf( CArrays.LOOPS / 2 )
+			this.testVar.indexOf( CArrays.LOOPS / 2 )
 		}
 		
 	}

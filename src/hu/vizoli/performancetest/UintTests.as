@@ -1,5 +1,6 @@
 package hu.vizoli.performancetest 
 {
+	import com.gskinner.performance.AbstractTest;
 	import hu.vizoli.performancetest.constant.CUints;
 	
 	/**
@@ -7,77 +8,80 @@ package hu.vizoli.performancetest
 	 * 
 	 * @author vizoli
 	 */
-	public class UintTests 
+	public class UintTests extends AbstractTest
 	{
+		private var testVar:uint;
+		
+		public function UintTests():void 
 		{
-			public static var testVar:uint;
+			this.description = CUints.DESCRIPTION;
 		}
 		
 		/**
 		 * Instantiate test
 		 */
-		public static function instantiate():void 
+		public function instantiate():void 
 		{
 			var l:uint = CUints.LOOPS;
 			for ( var i:uint = 0; i < l; i++ )
 			{
-				testVar = CUints.INIT_NUMBER;
+				this.testVar = CUints.INIT_NUMBER;
 			}
 		}
 		
 		/**
 		 * Addition test
 		 */
-		public static function addition():void 
+		public function addition():void 
 		{
-			testVar = CUints.INIT_NUMBER;
+			this.testVar = CUints.INIT_NUMBER;
 			
 			var l:uint = CUints.LOOPS;
 			for ( var i:uint = 0; i < l; i++ )
 			{
-				testVar += testVar;
+				this.testVar += this.testVar;
 			}
 		}
 		
 		/**
 		 * Subtraction test
 		 */
-		public static function subtraction():void 
+		public function subtraction():void 
 		{
-			testVar = CUints.INIT_NUMBER;
+			this.testVar = CUints.INIT_NUMBER;
 			
 			var l:uint = CUints.LOOPS;
 			for ( var i:uint = 0; i < l; i++ )
 			{
-				testVar -= testVar;
+				this.testVar -= this.testVar;
 			}
 		}
 		
 		/**
 		 * Multiplication test
 		 */
-		public static function multiplication():void 
+		public function multiplication():void 
 		{
-			testVar = CUints.INIT_NUMBER;
+			this.testVar = CUints.INIT_NUMBER;
 			
 			var l:uint = CUints.LOOPS;
 			for ( var i:uint = 0; i < l; i++ )
 			{
-				testVar *= testVar;
+				this.testVar *= this.testVar;
 			}
 		}
 		
 		/**
 		 * Division test
 		 */
-		public static function division():void 
+		public function division():void 
 		{
-			testVar = CUints.INIT_NUMBER;
+			this.testVar = CUints.INIT_NUMBER;
 			
 			var l:uint = CUints.LOOPS;
 			for ( var i:uint = 0; i < l; i++ )
 			{
-				testVar /= testVar;
+				this.testVar /= this.testVar;
 			}
 		}
 		

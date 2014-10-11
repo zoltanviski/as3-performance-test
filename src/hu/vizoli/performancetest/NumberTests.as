@@ -1,82 +1,87 @@
 package hu.vizoli.performancetest 
 {
+	import com.gskinner.performance.AbstractTest;
 	import hu.vizoli.performancetest.constant.CNumbers;
+	
 	/**
 	 * Test the Number primitive
 	 * 
 	 * @author vizoli
 	 */
-	public class NumberTests 
+	public class NumberTests extends AbstractTest
 	{
+		private var testVar:Number;
+		
+		public function NumberTests() 
 		{
-			public static var testVar:Number;
+			this.description = CNumbers.DESCRIPTION;
 		}
 		
 		/**
 		 * Instantiate test
 		 */
-		public static function instantiate():void 
+		public function instantiate():void 
 		{
 			var l:int = CNumbers.LOOPS;
 			for ( var i:Number = 0; i < l; i++ )
 			{
-				testVar = CNumbers.INIT_NUMBER;
+				this.testVar = CNumbers.INIT_NUMBER;
 			}
 		}
 		
 		/**
 		 * Addition test
 		 */
-		public static function addition():void 
+		public function addition():void 
 		{
-			testVar = CNumbers.INIT_NUMBER;
+			this.testVar = CNumbers.INIT_NUMBER;
 			
 			var l:Number = 1000000;
 			for ( var i:Number = 0; i < l; i++ )
 			{
-				testVar += testVar;
+				this.testVar += this.testVar;
 			}
 		}
 		
 		/**
 		 * Subtraction test
 		 */
-		public static function subtraction():void 
+		public function subtraction():void 
 		{
-			testVar = CNumbers.INIT_NUMBER;
+			this.testVar = CNumbers.INIT_NUMBER;
 			
 			var l:Number = 1000000;
 			for ( var i:Number = 0; i < l; i++ )
 			{
-				testVar -= testVar;
+				this.testVar -= this.testVar;
 			}
 		}
 		
 		/**
 		 * Multiplication test
 		 */
-		public static function multiplication():void 
+		public function multiplication():void 
 		{
-			testVar = CNumbers.INIT_NUMBER;
+			this.testVar = CNumbers.INIT_NUMBER;
 			
 			var l:Number = 1000000;
 			for ( var i:Number = 0; i < l; i++ )
 			{
-				testVar *= testVar;
+				this.testVar *= this.testVar;
 			}
 		}
 		
 		/**
 		 * Division test
 		 */
-		public static function division():void 
+		public function division():void 
 		{
-			testVar = CNumbers.INIT_NUMBER;
+			this.testVar = CNumbers.INIT_NUMBER;
 			
 			var l:Number = 1000000;
 			for ( var i:Number = 0; i < l; i++ )
 			{
-				testVar /= testVar;
+				this.testVar /= this.testVar;
 			}
 		}
 		

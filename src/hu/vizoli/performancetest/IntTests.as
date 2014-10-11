@@ -1,5 +1,6 @@
 package hu.vizoli.performancetest 
 {
+	import com.gskinner.performance.AbstractTest;
 	import hu.vizoli.performancetest.constant.CInts;
 	
 	/**
@@ -7,77 +8,80 @@ package hu.vizoli.performancetest
 	 * 
 	 * @author vizoli
 	 */
-	public class IntTests 
+	public class IntTests extends AbstractTest
 	{
+		private var testVar:int;
+		
+		public function IntTests() 
 		{
-			public static var testVar:int;
+			this.description = CInts.DESCRIPTION;
 		}
 		
 		/**
 		 * Instantiate test
 		 */
-		public static function instantiate():void 
+		public function instantiate():void 
 		{
 			var l:int = CInts.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
 			{
-				testVar = CInts.INIT_NUMBER;
+				this.testVar = CInts.INIT_NUMBER;
 			}
 		}
 		
 		/**
 		 * Addition test
 		 */
-		public static function addition():void 
+		public function addition():void 
 		{
-			testVar = CInts.INIT_NUMBER;
+			this.testVar = CInts.INIT_NUMBER;
 			
 			var l:int = CInts.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
 			{
-				testVar += testVar;
+				this.testVar += this.testVar;
 			}
 		}
 		
 		/**
 		 * Subtraction test
 		 */
-		public static function subtraction():void 
+		public function subtraction():void 
 		{
-			testVar = CInts.INIT_NUMBER;
+			this.testVar = CInts.INIT_NUMBER;
 			
 			var l:int = CInts.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
 			{
-				testVar -= testVar;
+				this.testVar -= this.testVar;
 			}
 		}
 		
 		/**
 		 * Multiplication test
 		 */
-		public static function multiplication():void 
+		public function multiplication():void 
 		{
-			testVar = CInts.INIT_NUMBER;
+			this.testVar = CInts.INIT_NUMBER;
 			
 			var l:int = CInts.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
 			{
-				testVar *= testVar;
+				this.testVar *= this.testVar;
 			}
 		}
 		
 		/**
 		 * Division test
 		 */
-		public static function division():void 
+		public function division():void 
 		{
-			testVar = CInts.INIT_NUMBER;
+			this.testVar = CInts.INIT_NUMBER;
 			
 			var l:int = CInts.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
 			{
-				testVar /= testVar;
+				this.testVar /= this.testVar;
 			}
 		}
 		

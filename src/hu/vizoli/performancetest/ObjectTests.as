@@ -1,5 +1,6 @@
 package hu.vizoli.performancetest 
 {
+	import com.gskinner.performance.AbstractTest;
 	import hu.vizoli.performancetest.constant.CObjects;
 	
 	/**
@@ -7,64 +8,67 @@ package hu.vizoli.performancetest
 	 * 
 	 * @author vizoli
 	 */
-	public class ObjectTests 
+	public class ObjectTests extends AbstractTest
 	{
+		private var testVar:Object;
+		
+		public function ObjectTests():void 
 		{
-			public static var testVar:Object;
+			this.description = CObjects.DESCRIPTION;
 		}
 		
 		/**
 		 * Normal instantiate test
 		 */
-		public static function instantiateNormal():void 
+		public function instantiateNormal():void 
 		{
 			var l:int = CObjects.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
 			{
-				testVar = new Object();
+				this.testVar = new Object();
 			}
 		}
 		
 		/**
 		 * Short instantiate test
 		 */
-		public static function instantiateShort():void 
+		public function instantiateShort():void 
 		{
 			var l:int = CObjects.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
 			{
-				testVar = {};
+				this.testVar = {};
 			}
 		}
 		
 		/**
 		 * Use with Number test
 		 */
-		public static function useWithNumber():void 
+		public function useWithNumber():void 
 		{
-			testVar = CObjects.INIT_INT;
+			this.testVar = CObjects.INIT_INT;
 			
 			var l:int = CObjects.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
 			{
-				testVar = Number( testVar ) * Number( testVar );
-				testVar = Number( testVar ) + Number( testVar );
-				testVar = Number( testVar ) / Number( testVar );
-				testVar = Number( testVar ) - Number( testVar );
+				this.testVar = Number( this.testVar ) * Number( this.testVar );
+				this.testVar = Number( this.testVar ) + Number( this.testVar );
+				this.testVar = Number( this.testVar ) / Number( this.testVar );
+				this.testVar = Number( this.testVar ) - Number( this.testVar );
 			}
 		}
 		
 		/**
 		 * Use with String test
 		 */
-		public static function useWithString():void 
+		public function useWithString():void 
 		{
-			testVar = CObjects.INIT_STRING;
+			this.testVar = CObjects.INIT_STRING;
 			
 			var l:int = CObjects.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
 			{
-				testVar += CObjects.INIT_STRING;
+				this.testVar += CObjects.INIT_STRING;
 			}
 		}
 		

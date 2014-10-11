@@ -8,6 +8,7 @@ package hu.vizoli.performancetest.constant
 	public class CArrays 
 	{
 		
+		public static const DESCRIPTION:String = "Array tests";
 		public static const LOOPS:int = 50000;
 		
 	}

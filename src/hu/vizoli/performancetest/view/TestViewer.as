@@ -4,6 +4,7 @@ package hu.vizoli.performancetest.view
 	import flash.display.Sprite;
 	import flash.text.TextField;
 	import flash.text.TextFieldAutoSize;
+	import hu.vizoli.performancetest.view.constant.CTestViewer;
 	
 	/**
 	 * Logger
@@ -22,6 +23,14 @@ package hu.vizoli.performancetest.view
 		}
 		
 		/**
+		 * Clear the textField
+		 */
+		public function clear():void
+		{
+			this._textArea.text = "";
+		}
+		
+		/**
 		 * Log the parameter string
 		 * 
 		 * @param	log
@@ -37,7 +46,8 @@ package hu.vizoli.performancetest.view
 		private function createChildren():void
 		{
 			this._textArea = new TextArea();
-			this._textArea.width = 500;
+			this._textArea.width = CTestViewer.WIDTH;
+			this._textArea.height = CTestViewer.HEIGHT;
 			this.addChild( this._textArea );
 		}
 		

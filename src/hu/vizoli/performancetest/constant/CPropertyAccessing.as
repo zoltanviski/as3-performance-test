@@ -8,6 +8,7 @@ package hu.vizoli.performancetest.constant
 	public class CPropertyAccessing 
 	{
 		
+		public static const DESCRIPTION:String = "Property Accessing tests";
 		public static const LOOPS:int = 500000;
 		
 	}

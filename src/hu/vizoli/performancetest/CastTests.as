@@ -1,5 +1,6 @@
 package hu.vizoli.performancetest 
 {
+	import com.gskinner.performance.AbstractTest;
 	import hu.vizoli.performancetest.constant.CCasts;
 	import hu.vizoli.performancetest.helper.DummyVO;
 	
@@ -8,13 +9,18 @@ package hu.vizoli.performancetest
 	 * 
 	 * @author vizoli
 	 */
-	public class CastTests 
+	public class CastTests extends AbstractTest
 	{
+		
+		public function CastTests():void 
+		{
+			this.description = CCasts.DESCRIPTION;
+		}
 		
 		/**
 		 * String casting to Number with as operator
 		 */
-		public static function stringToNumberWithAs():void 
+		public function stringToNumberWithAs():void 
 		{
 			var testVar:String = CCasts.STRING_TO_NUMBER;
 			
@@ -28,7 +34,7 @@ package hu.vizoli.performancetest
 		/**
 		 * String casting to Number with Type( x )
 		 */
-		public static function stringToNumberWithParas():void 
+		public function stringToNumberWithParas():void 
 		{
 			var testVar:String = CCasts.STRING_TO_NUMBER;
 			
@@ -42,7 +48,7 @@ package hu.vizoli.performancetest
 		/**
 		 * Dummy class cast with as operator
 		 */
-		public static function dummyClassCastWithAs():void 
+		public function dummyClassCastWithAs():void 
 		{
 			var testVar:DummyVO = new DummyVO();
 			
@@ -56,7 +62,7 @@ package hu.vizoli.performancetest
 		/**
 		 * Dummy class cast with Type( x )
 		 */
-		public static function dummyClassCastWithParas():void 
+		public function dummyClassCastWithParas():void 
 		{
 			var testVar:DummyVO = new DummyVO();
 			

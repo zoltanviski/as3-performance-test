@@ -5,10 +5,14 @@ package
 	import flash.accessibility.AccessibilityProperties;
 	import flash.display.Sprite;
 	import flash.events.Event;
+	import flash.events.MouseEvent;
+	import flash.events.TimerEvent;
+	import flash.utils.Timer;
 	import hu.vizoli.performancetest.ArrayTests;
 	import hu.vizoli.performancetest.AsteriskTests;
 	import hu.vizoli.performancetest.CastTests;
 	import hu.vizoli.performancetest.ConditionTests;
+	import hu.vizoli.performancetest.constant.CTests;
 	import hu.vizoli.performancetest.IntTests;
 	import hu.vizoli.performancetest.IntTests;
 	import hu.vizoli.performancetest.LoopTests;
@@ -18,6 +22,9 @@ package
 	import hu.vizoli.performancetest.StringTests;
 	import hu.vizoli.performancetest.UintTests;
 	import hu.vizoli.performancetest.VectorTests;
+	import hu.vizoli.performancetest.view.constant.CStartTestButton;
+	import hu.vizoli.performancetest.view.constant.CTestViewer;
+	import hu.vizoli.performancetest.view.StartTestButton;
 	import hu.vizoli.performancetest.view.TestViewer;
 	
 	/**
@@ -28,6 +35,8 @@ package
 	public class Main extends Sprite 
 	{
 		private var _textViewer:TestViewer;
+		private var _startTestButton:StartTestButton;
+		private var _timer:Timer;
 		
 		public function Main():void 
 		{
@@ -50,20 +59,10 @@ package
 		{
 			this.removeEventListener( Event.ADDED_TO_STAGE, this.init );
 			
-			this.createChildren();
+			this._timer = new Timer( 100, 1 );
+			this._timer.addEventListener( TimerEvent.TIMER, this.runTests );
 			
-			//this.numberTests();
-			//this.intTests();
-			//this.uintTests();
-			//this.arrayTests();
-			//this.vectorTests();
-			//this.loopTests();
-			//this.objectTests();
-			//this.asteriskTests();
-			//this.stringTests();
-			//this.castsTests();
-			//this.conditionsTests();
-			this.accessPropertyTests();
+			this.createChildren();
 		}
 		
 		/**
@@ -71,8 +70,54 @@ package
 		 */
 		private function createChildren():void
 		{
+			this._startTestButton = new StartTestButton();
+			this._startTestButton.x = ( this.stage.stageWidth - CStartTestButton.WIDTH ) / 2;
+			this._startTestButton.y = CStartTestButton.Y;
+			this._startTestButton.addEventListener( MouseEvent.CLICK, this.startTestButtonClickHandler );
+			this.addChild( this._startTestButton );
+			
 			this._textViewer = new TestViewer();
+			this._textViewer.x = ( this.stage.stageWidth - CTestViewer.WIDTH ) / 2;
+			this._textViewer.y = CTestViewer.Y;
 			this.addChild( this._textViewer );
+		}
+		
+		/**
+		 * Start the tests
+		 * 
+		 * @param	e
+		 */
+		private function startTestButtonClickHandler( e:MouseEvent ):void 
+		{
+			this._startTestButton.setLabelToProcessing();
+			
+			this._textViewer.clear();
+			
+			this._timer.reset();
+			this._timer.start();
+		}
+		
+		/**
+		 * Run tests
+		 * 
+		 * @param	e
+		 */
+		private function runTests( e:TimerEvent ):void 
+		{
+			this.numberTests();
+			this.intTests();
+			this.uintTests();
+			this.arrayTests();
+			this.vectorTests();
+			this.loopTests();
+			this.objectTests();
+			this.asteriskTests();
+			this.stringTests();
+			this.castsTests();
+			this.conditionsTests();
+			this.accessPropertyTests();
+			
+			this._startTestButton.setLabelToStartTheTest();
 		}
 		
 		/**
@@ -80,13 +125,15 @@ package
 		 */
 		private function numberTests():void
 		{
-			trace( "-------------------------------------------------- NUMBER TESTS ----------------------------------------------" );
-			this._textViewer.log( String( ptest( NumberTests.instantiate, null, "Number instantiate", 10 ) ) );
-			this._textViewer.log( String( ptest( NumberTests.addition, null, "Number addition", 10 ) ) );
-			this._textViewer.log( String( ptest( NumberTests.subtraction, null, "Number subtraction", 10 ) ) );
-			this._textViewer.log( String( ptest( NumberTests.multiplication, null, "Number multiplication", 10 ) ) );
-			this._textViewer.log( String( ptest( NumberTests.division, null, "Number division", 10 ) ) );
-			trace( "--------------------------------------------------------------------------------------------------------------\n" );
+			var testClass:NumberTests = new NumberTests();
+			
+			this._textViewer.log( String( testClass.description ) );
+			this._textViewer.log( String( ptest( testClass.instantiate, null, "Number instantiate", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.addition, null, "Number addition", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.subtraction, null, "Number subtraction", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.multiplication, null, "Number multiplication", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.division, null, "Number division", CTests.iteration ) ) );
+			this._textViewer.log( String( "**************************************************************************************************** \n" ) );
 		}
 		
 		/**
@@ -94,13 +141,15 @@ package
 		 */
 		private function intTests():void
 		{
-			trace( "--------------------------------------------------- INT TESTS ------------------------------------------------" );
-			this._textViewer.log( String( ptest( IntTests.instantiate, null, "int instantiate", 10 ) ) );
-			this._textViewer.log( String( ptest( IntTests.addition, null, "int addition", 10 ) ) );
-			this._textViewer.log( String( ptest( IntTests.subtraction, null, "int subtraction", 10 ) ) );
-			this._textViewer.log( String( ptest( IntTests.multiplication, null, "int multiplication", 10 ) ) );
-			this._textViewer.log( String( ptest( IntTests.division, null, "int division", 10 ) ) );
-			trace( "--------------------------------------------------------------------------------------------------------------\n" );
+			var testClass:IntTests = new IntTests();
+			
+			this._textViewer.log( String( testClass.description ) );
+			this._textViewer.log( String( ptest( testClass.instantiate, null, "int instantiate", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.addition, null, "int addition", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.subtraction, null, "int subtraction", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.multiplication, null, "int multiplication", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.division, null, "int division", CTests.iteration ) ) );
+			this._textViewer.log( String( "**************************************************************************************************** \n" ) );
 		}
 		
 		/**
@@ -108,13 +157,15 @@ package
 		 */
 		private function uintTests():void
 		{
-			trace( "-------------------------------------------------- UINT TESTS ------------------------------------------------" );
-			this._textViewer.log( String( ptest( UintTests.instantiate, null, "uint instantiate", 10 ) ) );
-			this._textViewer.log( String( ptest( UintTests.addition, null, "uint addition", 10 ) ) );
-			this._textViewer.log( String( ptest( UintTests.subtraction, null, "uint subtraction", 10 ) ) );
-			this._textViewer.log( String( ptest( UintTests.multiplication, null, "uint multiplication", 10 ) ) );
-			this._textViewer.log( String( ptest( UintTests.division, null, "uint division", 10 ) ) );
-			trace( "--------------------------------------------------------------------------------------------------------------\n" );
+			var testClass:UintTests = new UintTests();
+			
+			this._textViewer.log( String( testClass.description ) );
+			this._textViewer.log( String( ptest( testClass.instantiate, null, "uint instantiate", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.addition, null, "uint addition", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.subtraction, null, "uint subtraction", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.multiplication, null, "uint multiplication", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.division, null, "uint division", CTests.iteration ) ) );
+			this._textViewer.log( String( "**************************************************************************************************** \n" ) );
 		}
 		
 		/**
@@ -122,14 +173,16 @@ package
 		 */
 		private function arrayTests():void
 		{
-			trace( "-------------------------------------------------- ARRAY TESTS -----------------------------------------------" );
-			this._textViewer.log( String( ptest( ArrayTests.instantiateNormal, null, "Array normal instantiate", 10 ) ) );
-			this._textViewer.log( String( ptest( ArrayTests.instantiateShort, null, "Array short instantiate", 10 ) ) );
-			this._textViewer.log( String( ptest( ArrayTests.push, null, "Array push", 10 ) ) );
-			this._textViewer.log( String( ptest( ArrayTests.unshift, null, "Array unshift", 10 ) ) );
-			this._textViewer.log( String( ptest( ArrayTests.shift, null, "Array shift", 10 ) ) );
-			this._textViewer.log( String( ptest( ArrayTests.indexOf, null, "Array indexOf", 10 ) ) );
-			trace( "--------------------------------------------------------------------------------------------------------------\n" );
+			var testClass:ArrayTests = new ArrayTests();
+			
+			this._textViewer.log( String( testClass.description ) );
+			this._textViewer.log( String( ptest( testClass.instantiateNormal, null, "Array normal instantiate", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.instantiateShort, null, "Array short instantiate", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.push, null, "Array push", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.unshift, null, "Array unshift", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.shift, null, "Array shift", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.indexOf, null, "Array indexOf", CTests.iteration ) ) );
+			this._textViewer.log( String( "**************************************************************************************************** \n" ) );
 		}
 		
 		/**
@@ -137,14 +190,16 @@ package
 		 */
 		private function vectorTests():void
 		{
-			trace( "------------------------------------------------- VECTOR TESTS -----------------------------------------------" );
-			this._textViewer.log( String( ptest( VectorTests.instantiateNormal, null, "Vector normal instantiate", 10 ) ) );
-			this._textViewer.log( String( ptest( VectorTests.instantiateShort, null, "Vector short instantiate", 10 ) ) );
-			this._textViewer.log( String( ptest( VectorTests.push, null, "Vector push", 10 ) ) );
-			this._textViewer.log( String( ptest( VectorTests.unshift, null, "Vector unshift", 10 ) ) );
-			this._textViewer.log( String( ptest( VectorTests.shift, null, "Vector shift", 10 ) ) );
-			this._textViewer.log( String( ptest( VectorTests.indexOf, null, "Vector indexOf", 10 ) ) );
-			trace( "--------------------------------------------------------------------------------------------------------------\n" );
+			var testClass:VectorTests = new VectorTests();
+			
+			this._textViewer.log( String( testClass.description ) );
+			this._textViewer.log( String( ptest( testClass.instantiateNormal, null, "Vector normal instantiate", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.instantiateShort, null, "Vector short instantiate", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.push, null, "Vector push", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.unshift, null, "Vector unshift", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.shift, null, "Vector shift", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.indexOf, null, "Vector indexOf", CTests.iteration ) ) );
+			this._textViewer.log( String( "**************************************************************************************************** \n" ) );
 		}
 		
 		/**
@@ -152,13 +207,15 @@ package
 		 */
 		private function loopTests():void
 		{
-			trace( "------------------------------------------------ LOOP TESTS --------------------------------------------------" );
-			this._textViewer.log( String( ptest( LoopTests.whileLoop, null, "Loop while", 10 ) ) );
-			this._textViewer.log( String( ptest( LoopTests.doWhileLoop, null, "Loop doWhile", 10 ) ) );
-			this._textViewer.log( String( ptest( LoopTests.forLoop, null, "Loop for", 10 ) ) );
-			this._textViewer.log( String( ptest( LoopTests.forInLoop, null, "Loop forInLoop", 10 ) ) );
-			this._textViewer.log( String( ptest( LoopTests.forEachInLoop, null, "Loop forEachInLoop", 10 ) ) );
-			trace( "--------------------------------------------------------------------------------------------------------------\n" );
+			var testClass:LoopTests = new LoopTests();
+			
+			this._textViewer.log( String( testClass.description ) );
+			this._textViewer.log( String( ptest( testClass.whileLoop, null, "Loop while", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.doWhileLoop, null, "Loop doWhile", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.forLoop, null, "Loop for", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.forInLoop, null, "Loop forInLoop", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.forEachInLoop, null, "Loop forEachInLoop", CTests.iteration ) ) );
+			this._textViewer.log( String( "**************************************************************************************************** \n" ) );
 		}
 		
 		/**
@@ -166,12 +223,14 @@ package
 		 */
 		private function objectTests():void
 		{
-			trace( "----------------------------------------------- OBJECT TESTS -------------------------------------------------" );
-			this._textViewer.log( String( ptest( ObjectTests.instantiateNormal, null, "Object normal instantiate", 10 ) ) );
-			this._textViewer.log( String( ptest( ObjectTests.instantiateShort, null, "Object short instantiate", 10 ) ) );
-			this._textViewer.log( String( ptest( ObjectTests.useWithNumber, null, "Object use with Number", 10 ) ) );
-			this._textViewer.log( String( ptest( ObjectTests.useWithString, null, "Object use with String", 10 ) ) );
-			trace( "--------------------------------------------------------------------------------------------------------------\n" );
+			var testClass:ObjectTests = new ObjectTests();
+			
+			this._textViewer.log( String( testClass.description ) );
+			this._textViewer.log( String( ptest( testClass.instantiateNormal, null, "Object normal instantiate", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.instantiateShort, null, "Object short instantiate", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.useWithNumber, null, "Object use with Number", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.useWithString, null, "Object use with String", CTests.iteration ) ) );
+			this._textViewer.log( String( "**************************************************************************************************** \n" ) );
 		}
 		
 		/**
@@ -179,12 +238,14 @@ package
 		 */
 		private function asteriskTests():void
 		{
-			trace( "---------------------------------------------- ASTERISK TESTS ------------------------------------------------" );
-			this._textViewer.log( String( ptest( AsteriskTests.instatiateNormal, null, "Asterisk normal instantiate", 10 ) ) );
-			this._textViewer.log( String( ptest( AsteriskTests.instatiateShort, null, "Asterisk short instantiate", 10 ) ) );
-			this._textViewer.log( String( ptest( AsteriskTests.useWithNumber, null, "Asterisk use with Number", 10 ) ) );
-			this._textViewer.log( String( ptest( AsteriskTests.useWithString, null, "Asterisk use with String", 10 ) ) );
-			trace( "--------------------------------------------------------------------------------------------------------------\n" );
+			var testClass:AsteriskTests = new AsteriskTests();
+			
+			this._textViewer.log( String( testClass.description ) );
+			this._textViewer.log( String( ptest( testClass.instatiateNormal, null, "Asterisk normal instantiate", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.instatiateShort, null, "Asterisk short instantiate", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.useWithNumber, null, "Asterisk use with Number", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.useWithString, null, "Asterisk use with String", CTests.iteration ) ) );
+			this._textViewer.log( String( "**************************************************************************************************** \n" ) );
 		}
 		
 		/**
@@ -192,12 +253,14 @@ package
 		 */
 		private function stringTests():void
 		{
-			trace( "----------------------------------------------- STRING TESTS -------------------------------------------------" );
-			this._textViewer.log( String( ptest( StringTests.concatWithPlusCharacter, null, "String concat with plus", 10 ) ) );
-			this._textViewer.log( String( ptest( StringTests.concatWithConcatMethod, null, "String concat with concat method", 10 ) ) );
-			this._textViewer.log( String( ptest( StringTests.replaceWithReplaceMethod, null, "String replace with replace method", 10 ) ) );
-			this._textViewer.log( String( ptest( StringTests.replaceWithSplitJoin, null, "String replace with split join", 10 ) ) );
-			trace( "--------------------------------------------------------------------------------------------------------------\n" );
+			var testClass:StringTests = new StringTests();
+			
+			this._textViewer.log( String( testClass.description ) );
+			this._textViewer.log( String( ptest( testClass.concatWithPlusCharacter, null, "String concat with plus", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.concatWithConcatMethod, null, "String concat with concat method", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.replaceWithReplaceMethod, null, "String replace with replace method", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.replaceWithSplitJoin, null, "String replace with split join", CTests.iteration ) ) );
+			this._textViewer.log( String( "**************************************************************************************************** \n" ) );
 		}
 		
 		/**
@@ -205,12 +268,14 @@ package
 		 */
 		private function castsTests():void
 		{
-			trace( "----------------------------------------------- CASTS TESTS --------------------------------------------------" );
-			this._textViewer.log( String( ptest( CastTests.stringToNumberWithAs, null, "Casts String to Number with as", 10 ) ) );
-			this._textViewer.log( String( ptest( CastTests.stringToNumberWithParas, null, "Casts String to Number with paras", 10 ) ) );
-			this._textViewer.log( String( ptest( CastTests.dummyClassCastWithAs, null, "Casts Dummy class cast with as operator", 10 ) ) );
-			this._textViewer.log( String( ptest( CastTests.dummyClassCastWithParas, null, "Casts Dummy class cast with Type( x )", 10 ) ) );
-			trace( "--------------------------------------------------------------------------------------------------------------\n" );
+			var testClass:CastTests = new CastTests();
+			
+			this._textViewer.log( String( testClass.description ) );
+			this._textViewer.log( String( ptest( testClass.stringToNumberWithAs, null, "Casts String to Number with as", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.stringToNumberWithParas, null, "Casts String to Number with paras", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.dummyClassCastWithAs, null, "Casts Dummy class cast with as operator", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.dummyClassCastWithParas, null, "Casts Dummy class cast with Type( x )", CTests.iteration ) ) );
+			this._textViewer.log( String( "**************************************************************************************************** \n" ) );
 		}
 		
 		/**
@@ -218,17 +283,19 @@ package
 		 */
 		private function conditionsTests():void
 		{
-			trace( "--------------------------------------------- CONDITIONS TESTS -----------------------------------------------" );
-			this._textViewer.log( String( ptest( ConditionTests.ternarySimple, null, "Conditions ternary simple", 10 ) ) );
-			this._textViewer.log( String( ptest( ConditionTests.ternarySimpleWithElse, null, "Conditions ternary simple with else", 10 ) ) );
-			this._textViewer.log( String( ptest( ConditionTests.ternaryComplexWithElse, null, "Conditions ternary complex with else", 10 ) ) );
-			this._textViewer.log( String( ptest( ConditionTests.ifSimple, null, "Conditions if simple", 10 ) ) );
-			this._textViewer.log( String( ptest( ConditionTests.ifSimpleWithElse, null, "Conditions if simple with else", 10 ) ) );
-			this._textViewer.log( String( ptest( ConditionTests.ifComplexWithElse, null, "Conditions if complex with else", 10 ) ) );
-			this._textViewer.log( String( ptest( ConditionTests.switchSimple, null, "Conditions switch simple", 10 ) ) );
-			this._textViewer.log( String( ptest( ConditionTests.switchSimpleWithDefault, null, "Conditions switch simple with default", 10 ) ) );
-			this._textViewer.log( String( ptest( ConditionTests.switchComplexWithdefault, null, "Conditions switch complex with default", 10 ) ) );
-			trace( "--------------------------------------------------------------------------------------------------------------\n" );
+			var testClass:ConditionTests = new ConditionTests();
+			
+			this._textViewer.log( String( testClass.description ) );
+			this._textViewer.log( String( ptest( testClass.ternarySimple, null, "Conditions ternary simple", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.ternarySimpleWithElse, null, "Conditions ternary simple with else", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.ternaryComplexWithElse, null, "Conditions ternary complex with else", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.ifSimple, null, "Conditions if simple", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.ifSimpleWithElse, null, "Conditions if simple with else", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.ifComplexWithElse, null, "Conditions if complex with else", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.switchSimple, null, "Conditions switch simple", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.switchSimpleWithDefault, null, "Conditions switch simple with default", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.switchComplexWithdefault, null, "Conditions switch complex with default", CTests.iteration ) ) );
+			this._textViewer.log( String( "**************************************************************************************************** \n" ) );
 		}
 	
 		/**
@@ -238,15 +305,15 @@ package
 		{
 			var testClass:PropertyAccessingTests = new PropertyAccessingTests();
 			
-			trace( "----------------------------------------- PROPERTY ACCESSING TESTS -------------------------------------------" );
-			this._textViewer.log( String( ptest( testClass.accessConst, null, "PropertyAccessingTests const", 10 ) ) );
-			this._textViewer.log( String( ptest( testClass.accessVariable, null, "PropertyAccessingTests variable", 10 ) ) );
-			this._textViewer.log( String( ptest( testClass.accessGetter, null, "PropertyAccessingTests getter", 10 ) ) );
-			this._textViewer.log( String( ptest( testClass.accessSetter, null, "PropertyAccessingTests setter", 10 ) ) );
-			this._textViewer.log( String( ptest( PropertyAccessingTests.accessStaticConst, null, "PropertyAccessingTests static const", 10 ) ) );
-			this._textViewer.log( String( ptest( PropertyAccessingTests.accessStaticVar, null, "PropertyAccessingTests static var", 10 ) ) );
-			this._textViewer.log( String( ptest( PropertyAccessingTests.accessStaticMethod, null, "PropertyAccessingTests static method", 10 ) ) );
-			trace( "--------------------------------------------------------------------------------------------------------------\n" );
+			this._textViewer.log( String( testClass.description ) );
+			this._textViewer.log( String( ptest( testClass.accessConst, null, "PropertyAccessingTests const", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.accessVariable, null, "PropertyAccessingTests variable", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.accessGetter, null, "PropertyAccessingTests getter", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( testClass.accessSetter, null, "PropertyAccessingTests setter", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( PropertyAccessingTests.accessStaticConst, null, "PropertyAccessingTests static const", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( PropertyAccessingTests.accessStaticVar, null, "PropertyAccessingTests static var", CTests.iteration ) ) );
+			this._textViewer.log( String( ptest( PropertyAccessingTests.accessStaticMethod, null, "PropertyAccessingTests static method", CTests.iteration ) ) );
+			this._textViewer.log( String( "**************************************************************************************************** \n" ) );
 		}
 		
 	}

@@ -1,5 +1,6 @@
 package hu.vizoli.performancetest 
 {
+	import com.gskinner.performance.AbstractTest;
 	import hu.vizoli.performancetest.constant.CConditions;
 	
 	/**
@@ -7,69 +8,74 @@ package hu.vizoli.performancetest
 	 * 
 	 * @author vizoli
 	 */
-	public class ConditionTests 
+	public class ConditionTests extends AbstractTest
 	{
+		private var testVar:int;
+		
+		public function ConditionTests():void 
 		{
-			public static var testVar:int = 5;
+			this.description = CConditions.DESCRIPTION;
+			
+			this.testVar = 5;
 		}
 		
 		/**
 		 * Ternary simple
 		 */
-		public static function ternarySimple():void 
+		public function ternarySimple():void 
 		{
 			var l:int = CConditions.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
 			{
-				testVar == 1
-							? testVar++ 
-							: null; 
+				this.testVar == 1
+								? this.testVar++ 
+								: null; 
 			}
 		}
 		
 		/**
 		 * Ternary simple with else
 		 */
-		public static function ternarySimpleWithElse():void 
+		public function ternarySimpleWithElse():void 
 		{
 			var l:int = CConditions.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
 			{
-				testVar == 1
-							? testVar++ 
-							: testVar++; 
+				this.testVar == 1
+								? this.testVar++ 
+								: this.testVar++; 
 			}
 		}
 		
 		/**
 		 * Ternary complex with else
 		 */
-		public static function ternaryComplexWithElse():void 
+		public function ternaryComplexWithElse():void 
 		{
 			var l:int = CConditions.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
 			{
-				testVar == 1
-							? ( testVar == 2
-											? ( testVar == 3
-															? testVar++
-															: testVar++ )
-											: testVar++ )
-							: testVar++; 
+				this.testVar == 1
+								? ( this.testVar == 2
+												? ( this.testVar == 3
+																? this.testVar++
+																: this.testVar++ )
+												: this.testVar++ )
+								: this.testVar++; 
 			}
 		}
 		
 		/**
 		 * String casting to Number with as operator
 		 */
-		public static function ifSimple():void 
+		public function ifSimple():void 
 		{
 			var l:int = CConditions.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
 			{
-				if ( testVar == 1 )
+				if ( this.testVar == 1 )
 				{
-					testVar++;
+					this.testVar++;
 				}
 			}
 		}
@@ -77,18 +83,18 @@ package hu.vizoli.performancetest
 		/**
 		 * String casting to Number with as operator
 		 */
-		public static function ifSimpleWithElse():void 
+		public function ifSimpleWithElse():void 
 		{
 			var l:int = CConditions.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
 			{
-				if ( testVar == 1 )
+				if ( this.testVar == 1 )
 				{
-					testVar++;
+					this.testVar++;
 				}
 				else
 				{
-					testVar++;
+					this.testVar++;
 				}
 			}
 		}
@@ -96,26 +102,26 @@ package hu.vizoli.performancetest
 		/**
 		 * String casting to Number with as operator
 		 */
-		public static function ifComplexWithElse():void 
+		public function ifComplexWithElse():void 
 		{
 			var l:int = CConditions.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
 			{
-				if ( testVar == 1 )
+				if ( this.testVar == 1 )
 				{
-					testVar++;
+					this.testVar++;
 				}
-				else if ( testVar == 2 )
+				else if ( this.testVar == 2 )
 				{
-					testVar++;
+					this.testVar++;
 				}
-				else if ( testVar == 3 )
+				else if ( this.testVar == 3 )
 				{
-					testVar++;
+					this.testVar++;
 				}
 				else
 				{
-					testVar++;
+					this.testVar++;
 				}
 			}
 		}
@@ -123,15 +129,15 @@ package hu.vizoli.performancetest
 		/**
 		 * String casting to Number with as operator
 		 */
-		public static function switchSimple():void 
+		public function switchSimple():void 
 		{
 			var l:int = CConditions.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
 			{
-				switch ( testVar )
+				switch ( this.testVar )
 				{
 					case 1:
-						testVar++;
+						this.testVar++;
 					break;
 				}
 			}
@@ -140,19 +146,19 @@ package hu.vizoli.performancetest
 		/**
 		 * String casting to Number with as operator
 		 */
-		public static function switchSimpleWithDefault():void 
+		public function switchSimpleWithDefault():void 
 		{
 			var l:int = CConditions.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
 			{
-				switch ( testVar )
+				switch ( this.testVar )
 				{
 					case 1:
-						testVar++;
+						this.testVar++;
 					break;
 					
 					default:
-						testVar++;
+						this.testVar++;
 					break;
 				}
 			}
@@ -161,27 +167,27 @@ package hu.vizoli.performancetest
 		/**
 		 * String casting to Number with as operator
 		 */
-		public static function switchComplexWithdefault():void 
+		public function switchComplexWithdefault():void 
 		{
 			var l:int = CConditions.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
 			{
-				switch ( testVar )
+				switch ( this.testVar )
 				{
 					case 1:
-						testVar++;
+						this.testVar++;
 					break;
 					
 					case 2:
-						testVar++;
+						this.testVar++;
 					break;
 					
 					case 3:
-						testVar++;
+						this.testVar++;
 					break;
 					
 					default:
-						testVar++;
+						this.testVar++;
 					break;
 				}
 			}
