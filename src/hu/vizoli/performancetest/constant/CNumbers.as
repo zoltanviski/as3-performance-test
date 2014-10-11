@@ -10,7 +10,7 @@ package hu.vizoli.performancetest.constant
 		
 		public static const DESCRIPTION:String = "Numbers tests";
 		public static const INIT_NUMBER:Number = 9999;
-		public static const LOOPS:Number = 100000000;
+		public static const LOOPS:Number = 10000000;
 		
 	}
 
