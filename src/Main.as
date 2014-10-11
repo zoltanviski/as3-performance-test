@@ -1,5 +1,6 @@
 package 
 {
+	import com.gskinner.performance.AbstractTest;
 	import com.gskinner.performance.PerformanceTest;
 	import com.gskinner.performance.ptest;
 	import flash.accessibility.AccessibilityProperties;
@@ -128,12 +129,12 @@ package
 			var testClass:NumberTests = new NumberTests();
 			
 			this._textViewer.log( String( testClass.description ) );
-			this._textViewer.log( String( ptest( testClass.instantiate, null, "Number instantiate", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.addition, null, "Number addition", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.subtraction, null, "Number subtraction", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.multiplication, null, "Number multiplication", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.division, null, "Number division", CTests.iteration ) ) );
-			this._textViewer.log( String( "**************************************************************************************************** \n" ) );
+			this._textViewer.log( this.getTestResult( "Number instantiate", testClass.instantiate ) );
+			this._textViewer.log( this.getTestResult( "Number addition", testClass.addition ) );
+			this._textViewer.log( this.getTestResult( "Number subtraction", testClass.subtraction ) );
+			this._textViewer.log( this.getTestResult( "Number multiplication", testClass.multiplication ) );
+			this._textViewer.log( this.getTestResult( "Number division", testClass.division ) );
+			this._textViewer.log( String( "*********************************************** \n" ) );
 		}
 		
 		/**
@@ -144,12 +145,12 @@ package
 			var testClass:IntTests = new IntTests();
 			
 			this._textViewer.log( String( testClass.description ) );
-			this._textViewer.log( String( ptest( testClass.instantiate, null, "int instantiate", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.addition, null, "int addition", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.subtraction, null, "int subtraction", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.multiplication, null, "int multiplication", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.division, null, "int division", CTests.iteration ) ) );
-			this._textViewer.log( String( "**************************************************************************************************** \n" ) );
+			this._textViewer.log( this.getTestResult( "int instantiate", testClass.instantiate ) );
+			this._textViewer.log( this.getTestResult( "int addition", testClass.addition ) );
+			this._textViewer.log( this.getTestResult( "int subtraction", testClass.subtraction ) );
+			this._textViewer.log( this.getTestResult( "int multiplication", testClass.multiplication ) );
+			this._textViewer.log( this.getTestResult( "int division", testClass.division ) );
+			this._textViewer.log( String( "*********************************************** \n" ) );
 		}
 		
 		/**
@@ -160,12 +161,12 @@ package
 			var testClass:UintTests = new UintTests();
 			
 			this._textViewer.log( String( testClass.description ) );
-			this._textViewer.log( String( ptest( testClass.instantiate, null, "uint instantiate", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.addition, null, "uint addition", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.subtraction, null, "uint subtraction", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.multiplication, null, "uint multiplication", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.division, null, "uint division", CTests.iteration ) ) );
-			this._textViewer.log( String( "**************************************************************************************************** \n" ) );
+			this._textViewer.log( this.getTestResult( "uint instantiate", testClass.instantiate ) );
+			this._textViewer.log( this.getTestResult( "uint addition", testClass.addition ) );
+			this._textViewer.log( this.getTestResult( "uint subtraction", testClass.subtraction ) );
+			this._textViewer.log( this.getTestResult( "uint multiplication", testClass.multiplication ) );
+			this._textViewer.log( this.getTestResult( "uint division", testClass.division ) );
+			this._textViewer.log( String( "*********************************************** \n" ) );
 		}
 		
 		/**
@@ -176,13 +177,13 @@ package
 			var testClass:ArrayTests = new ArrayTests();
 			
 			this._textViewer.log( String( testClass.description ) );
-			this._textViewer.log( String( ptest( testClass.instantiateNormal, null, "Array normal instantiate", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.instantiateShort, null, "Array short instantiate", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.push, null, "Array push", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.unshift, null, "Array unshift", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.shift, null, "Array shift", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.indexOf, null, "Array indexOf", CTests.iteration ) ) );
-			this._textViewer.log( String( "**************************************************************************************************** \n" ) );
+			this._textViewer.log( this.getTestResult( "Array normal instantiate", testClass.instantiateNormal ) );
+			this._textViewer.log( this.getTestResult( "Array short instantiate", testClass.instantiateShort ) );
+			this._textViewer.log( this.getTestResult( "Array push", testClass.push ) );
+			this._textViewer.log( this.getTestResult( "Array unshift", testClass.unshift ) );
+			this._textViewer.log( this.getTestResult( "Array shift", testClass.shift ) );
+			this._textViewer.log( this.getTestResult( "Array indexOf", testClass.indexOf ) );
+			this._textViewer.log( String( "*********************************************** \n" ) );
 		}
 		
 		/**
@@ -193,13 +194,13 @@ package
 			var testClass:VectorTests = new VectorTests();
 			
 			this._textViewer.log( String( testClass.description ) );
-			this._textViewer.log( String( ptest( testClass.instantiateNormal, null, "Vector normal instantiate", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.instantiateShort, null, "Vector short instantiate", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.push, null, "Vector push", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.unshift, null, "Vector unshift", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.shift, null, "Vector shift", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.indexOf, null, "Vector indexOf", CTests.iteration ) ) );
-			this._textViewer.log( String( "**************************************************************************************************** \n" ) );
+			this._textViewer.log( this.getTestResult( "Vector normal instantiate", testClass.instantiateNormal ) );
+			this._textViewer.log( this.getTestResult( "Vector short instantiate", testClass.instantiateNormal ) );
+			this._textViewer.log( this.getTestResult( "Vector push", testClass.instantiateNormal ) );
+			this._textViewer.log( this.getTestResult( "Vector unshift", testClass.instantiateNormal ) );
+			this._textViewer.log( this.getTestResult( "Vector shift", testClass.instantiateNormal ) );
+			this._textViewer.log( this.getTestResult( "Vector indexOf", testClass.instantiateNormal ) );
+			this._textViewer.log( String( "*********************************************** \n" ) );
 		}
 		
 		/**
@@ -210,12 +211,12 @@ package
 			var testClass:LoopTests = new LoopTests();
 			
 			this._textViewer.log( String( testClass.description ) );
-			this._textViewer.log( String( ptest( testClass.whileLoop, null, "Loop while", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.doWhileLoop, null, "Loop doWhile", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.forLoop, null, "Loop for", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.forInLoop, null, "Loop forInLoop", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.forEachInLoop, null, "Loop forEachInLoop", CTests.iteration ) ) );
-			this._textViewer.log( String( "**************************************************************************************************** \n" ) );
+			this._textViewer.log( this.getTestResult( "Loop while", testClass.whileLoop ) );
+			this._textViewer.log( this.getTestResult( "Loop doWhile", testClass.doWhileLoop ) );
+			this._textViewer.log( this.getTestResult( "Loop for", testClass.forLoop ) );
+			this._textViewer.log( this.getTestResult( "Loop forInLoop", testClass.forInLoop ) );
+			this._textViewer.log( this.getTestResult( "Loop forEachInLoop", testClass.forEachInLoop ) );
+			this._textViewer.log( String( "*********************************************** \n" ) );
 		}
 		
 		/**
@@ -226,11 +227,11 @@ package
 			var testClass:ObjectTests = new ObjectTests();
 			
 			this._textViewer.log( String( testClass.description ) );
-			this._textViewer.log( String( ptest( testClass.instantiateNormal, null, "Object normal instantiate", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.instantiateShort, null, "Object short instantiate", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.useWithNumber, null, "Object use with Number", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.useWithString, null, "Object use with String", CTests.iteration ) ) );
-			this._textViewer.log( String( "**************************************************************************************************** \n" ) );
+			this._textViewer.log( this.getTestResult( "Object normal instantiate", testClass.instantiateNormal ) );
+			this._textViewer.log( this.getTestResult( "Object short instantiate", testClass.instantiateShort ) );
+			this._textViewer.log( this.getTestResult( "Object use with Number", testClass.useWithNumber ) );
+			this._textViewer.log( this.getTestResult( "Object use with String", testClass.useWithString ) );
+			this._textViewer.log( String( "*********************************************** \n" ) );
 		}
 		
 		/**
@@ -241,11 +242,11 @@ package
 			var testClass:AsteriskTests = new AsteriskTests();
 			
 			this._textViewer.log( String( testClass.description ) );
-			this._textViewer.log( String( ptest( testClass.instatiateNormal, null, "Asterisk normal instantiate", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.instatiateShort, null, "Asterisk short instantiate", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.useWithNumber, null, "Asterisk use with Number", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.useWithString, null, "Asterisk use with String", CTests.iteration ) ) );
-			this._textViewer.log( String( "**************************************************************************************************** \n" ) );
+			this._textViewer.log( this.getTestResult( "Asterisk normal instantiate", testClass.instatiateNormal ) );
+			this._textViewer.log( this.getTestResult( "Asterisk short instantiate", testClass.instatiateShort ) );
+			this._textViewer.log( this.getTestResult( "Asterisk use with Number", testClass.useWithNumber ) );
+			this._textViewer.log( this.getTestResult( "Asterisk use with String", testClass.useWithString ) );
+			this._textViewer.log( String( "*********************************************** \n" ) );
 		}
 		
 		/**
@@ -256,11 +257,11 @@ package
 			var testClass:StringTests = new StringTests();
 			
 			this._textViewer.log( String( testClass.description ) );
-			this._textViewer.log( String( ptest( testClass.concatWithPlusCharacter, null, "String concat with plus", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.concatWithConcatMethod, null, "String concat with concat method", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.replaceWithReplaceMethod, null, "String replace with replace method", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.replaceWithSplitJoin, null, "String replace with split join", CTests.iteration ) ) );
-			this._textViewer.log( String( "**************************************************************************************************** \n" ) );
+			this._textViewer.log( this.getTestResult( "String concat with plus", testClass.concatWithPlusCharacter ) );
+			this._textViewer.log( this.getTestResult( "String concat with concat method", testClass.concatWithConcatMethod ) );
+			this._textViewer.log( this.getTestResult( "String replace with replace method", testClass.replaceWithReplaceMethod ) );
+			this._textViewer.log( this.getTestResult( "String replace with split join", testClass.replaceWithSplitJoin ) );
+			this._textViewer.log( String( "*********************************************** \n" ) );
 		}
 		
 		/**
@@ -271,11 +272,11 @@ package
 			var testClass:CastTests = new CastTests();
 			
 			this._textViewer.log( String( testClass.description ) );
-			this._textViewer.log( String( ptest( testClass.stringToNumberWithAs, null, "Casts String to Number with as", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.stringToNumberWithParas, null, "Casts String to Number with paras", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.dummyClassCastWithAs, null, "Casts Dummy class cast with as operator", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.dummyClassCastWithParas, null, "Casts Dummy class cast with Type( x )", CTests.iteration ) ) );
-			this._textViewer.log( String( "**************************************************************************************************** \n" ) );
+			this._textViewer.log( this.getTestResult( "Casts String to Number with as", testClass.stringToNumberWithAs ) );
+			this._textViewer.log( this.getTestResult( "Casts String to Number with paras", testClass.stringToNumberWithParas ) );
+			this._textViewer.log( this.getTestResult( "Casts Dummy class cast with as operator", testClass.dummyClassCastWithAs ) );
+			this._textViewer.log( this.getTestResult( "Casts Dummy class cast with Type( x )", testClass.dummyClassCastWithParas ) );
+			this._textViewer.log( String( "*********************************************** \n" ) );
 		}
 		
 		/**
@@ -286,16 +287,16 @@ package
 			var testClass:ConditionTests = new ConditionTests();
 			
 			this._textViewer.log( String( testClass.description ) );
-			this._textViewer.log( String( ptest( testClass.ternarySimple, null, "Conditions ternary simple", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.ternarySimpleWithElse, null, "Conditions ternary simple with else", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.ternaryComplexWithElse, null, "Conditions ternary complex with else", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.ifSimple, null, "Conditions if simple", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.ifSimpleWithElse, null, "Conditions if simple with else", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.ifComplexWithElse, null, "Conditions if complex with else", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.switchSimple, null, "Conditions switch simple", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.switchSimpleWithDefault, null, "Conditions switch simple with default", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.switchComplexWithdefault, null, "Conditions switch complex with default", CTests.iteration ) ) );
-			this._textViewer.log( String( "**************************************************************************************************** \n" ) );
+			this._textViewer.log( this.getTestResult( "Conditions ternary simple", testClass.ternarySimple ) );
+			this._textViewer.log( this.getTestResult( "Conditions ternary simple with else", testClass.ternarySimpleWithElse ) );
+			this._textViewer.log( this.getTestResult( "Conditions ternary complex with else", testClass.ternaryComplexWithElse ) );
+			this._textViewer.log( this.getTestResult( "Conditions if simple", testClass.ifSimple ) );
+			this._textViewer.log( this.getTestResult( "Conditions if simple with else", testClass.ifSimpleWithElse ) );
+			this._textViewer.log( this.getTestResult( "Conditions if complex with else", testClass.ifComplexWithElse ) );
+			this._textViewer.log( this.getTestResult( "Conditions switch simple", testClass.switchSimple ) );
+			this._textViewer.log( this.getTestResult( "Conditions switch simple with default", testClass.switchSimpleWithDefault ) );
+			this._textViewer.log( this.getTestResult( "Conditions switch complex with default", testClass.switchComplexWithdefault ) );
+			this._textViewer.log( String( "*********************************************** \n" ) );
 		}
 	
 		/**
@@ -306,15 +307,45 @@ package
 			var testClass:PropertyAccessingTests = new PropertyAccessingTests();
 			
 			this._textViewer.log( String( testClass.description ) );
-			this._textViewer.log( String( ptest( testClass.accessConst, null, "PropertyAccessingTests const", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.accessVariable, null, "PropertyAccessingTests variable", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.accessGetter, null, "PropertyAccessingTests getter", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( testClass.accessSetter, null, "PropertyAccessingTests setter", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( PropertyAccessingTests.accessStaticConst, null, "PropertyAccessingTests static const", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( PropertyAccessingTests.accessStaticVar, null, "PropertyAccessingTests static var", CTests.iteration ) ) );
-			this._textViewer.log( String( ptest( PropertyAccessingTests.accessStaticMethod, null, "PropertyAccessingTests static method", CTests.iteration ) ) );
-			this._textViewer.log( String( "**************************************************************************************************** \n" ) );
+			this._textViewer.log( this.getTestResult( "PropertyAccessingTests const", testClass.accessConst ) );
+			this._textViewer.log( this.getTestResult( "PropertyAccessingTests variable", testClass.accessVariable ) );
+			this._textViewer.log( this.getTestResult( "PropertyAccessingTests getter", testClass.accessGetter ) );
+			this._textViewer.log( this.getTestResult( "PropertyAccessingTests setter", testClass.accessSetter ) );
+			this._textViewer.log( this.getTestResult( "PropertyAccessingTests static const", PropertyAccessingTests.accessStaticConst ) );
+			this._textViewer.log( this.getTestResult( "PropertyAccessingTests static var", PropertyAccessingTests.accessStaticVar ) );
+			this._textViewer.log( this.getTestResult( "PropertyAccessingTests static method", PropertyAccessingTests.accessStaticMethod ) );
+			this._textViewer.log( String( "*********************************************** \n" ) );
 		}
+		
+		/**
+		 * Get test in String
+		 * 
+		 * @param	testName
+		 * @param	testFunction
+		 */
+		private function getTestResult( testName:String, testFunction:Function ):String
+		{
+			var abstractTest:AbstractTest = ptest( testFunction, null, testName, CTests.iteration );
+			
+			return String( testName + " " + this.trim( abstractTest.time, 2 ) );
+		}
+		
+		/**
+		 * Trim the number
+		 * 
+		 * @param	theNumber
+		 * @param	decPlaces
+		 */
+		public function trim( theNumber:Number, decPlaces:Number ):Number 
+		{
+			if ( decPlaces >= 0 ) 
+			{
+				var temp:Number = Math.pow( 10, decPlaces );
+				return Math.round( theNumber * temp ) / temp;
+			}
+
+			return theNumber;
+		} 
 		
 	}
 	

@@ -9,7 +9,7 @@ package hu.vizoli.performancetest.view.constant
 	{
 		
 		public static const Y:int = 40;
-		public static const WIDTH:int = 700;
+		public static const WIDTH:int = 300;
 		public static const HEIGHT:int = 550;
 		
 	}
