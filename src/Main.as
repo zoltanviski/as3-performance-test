@@ -105,14 +105,23 @@ package
 		 */
 		private function runTests( e:TimerEvent ):void 
 		{
-			this.numberTests();
-			this.intTests();
-			this.uintTests();
-			this.arrayTests();
-			this.vectorTests();
+			this.numbersInstantiateTests();
+			this.numbersAdditionTests();
+			this.numbersSubtractionTests();
+			this.numbersDivisionTests();
+			this.numbersMultiplicationTests();
+			
+			this.listsInstantiateTests();
+			this.listsPushTests();
+			this.listsUnshiftTests();
+			this.listsShiftTests();
+			this.listsIndexOfTests();
+			
+			this.instantiateNonSPecificTypedTest();
+			this.useWithNumberNonSPecificTypedTest();
+			this.useWithStringNonSPecificTypedTest();
+			
 			this.loopTests();
-			this.objectTests();
-			this.asteriskTests();
 			this.stringTests();
 			this.castsTests();
 			this.conditionsTests();
@@ -122,84 +131,154 @@ package
 		}
 		
 		/**
-		 * Tests of Number
+		 * Instantiate numbers test
 		 */
-		private function numberTests():void
+		private function numbersInstantiateTests():void
 		{
-			var testClass:NumberTests = new NumberTests();
+			var numberTests:NumberTests = new NumberTests();
+			var intTests:IntTests = new IntTests();
+			var uintTests:UintTests = new UintTests();
 			
-			this._textViewer.log( String( testClass.description ) );
-			this._textViewer.log( this.getTestResult( "Number instantiate", testClass.instantiate ) );
-			this._textViewer.log( this.getTestResult( "Number addition", testClass.addition ) );
-			this._textViewer.log( this.getTestResult( "Number subtraction", testClass.subtraction ) );
-			this._textViewer.log( this.getTestResult( "Number multiplication", testClass.multiplication ) );
-			this._textViewer.log( this.getTestResult( "Number division", testClass.division ) );
+			this._textViewer.log( "Instantiate numbers test" );
+			this._textViewer.log( this.getTestResult( "Number instantiate", numberTests.instantiate ) );
+			this._textViewer.log( this.getTestResult( "int instantiate", intTests.instantiate ) );
+			this._textViewer.log( this.getTestResult( "uint instantiate", uintTests.instantiate ) );
+			this._textViewer.log( "*********************************************** \n" );
+		}
+		
+		/**
+		 *  Addition numbers tests
+		 */
+		private function numbersAdditionTests():void
+		{
+			var numberTests:NumberTests = new NumberTests();
+			var intTests:IntTests = new IntTests();
+			var uintTests:UintTests = new UintTests();
+			
+			this._textViewer.log( "Addition numbers tests" );
+			this._textViewer.log( this.getTestResult( "Number addition", numberTests.addition ) );
+			this._textViewer.log( this.getTestResult( "int addition", intTests.addition ) );
+			this._textViewer.log( this.getTestResult( "uint addition", uintTests.addition ) );
+			this._textViewer.log( "*********************************************** \n" );
+		}
+		
+		/**
+		 *  Subtraction numbers tests
+		 */
+		private function numbersSubtractionTests():void
+		{
+			var numberTests:NumberTests = new NumberTests();
+			var intTests:IntTests = new IntTests();
+			var uintTests:UintTests = new UintTests();
+			
+			this._textViewer.log( "Subtraction numbers tests" );
+			this._textViewer.log( this.getTestResult( "Number subtraction", numberTests.subtraction ) );
+			this._textViewer.log( this.getTestResult( "int subtraction", intTests.subtraction ) );
+			this._textViewer.log( this.getTestResult( "uint subtraction", uintTests.subtraction ) );
+			this._textViewer.log( "*********************************************** \n" );
+		}
+		
+		/**
+		 *  Multiplication numbers tests
+		 */
+		private function numbersMultiplicationTests():void
+		{
+			var numberTests:NumberTests = new NumberTests();
+			var intTests:IntTests = new IntTests();
+			var uintTests:UintTests = new UintTests();
+			
+			this._textViewer.log( "Multiplication numbers tests" );
+			this._textViewer.log( this.getTestResult( "Number multiplication", numberTests.multiplication ) );
+			this._textViewer.log( this.getTestResult( "int multiplication", intTests.multiplication ) );
+			this._textViewer.log( this.getTestResult( "uint multiplication", uintTests.multiplication ) );
+			this._textViewer.log( "*********************************************** \n" );
+		}
+		
+		/**
+		 *  Division numbers tests
+		 */
+		private function numbersDivisionTests():void
+		{
+			var numberTests:NumberTests = new NumberTests();
+			var intTests:IntTests = new IntTests();
+			var uintTests:UintTests = new UintTests();
+			
+			this._textViewer.log( "Division numbers tests" );
+			this._textViewer.log( this.getTestResult( "Number division", numberTests.division ) );
+			this._textViewer.log( this.getTestResult( "int division", intTests.division ) );
+			this._textViewer.log( this.getTestResult( "uint division", uintTests.division ) );
+			this._textViewer.log( "*********************************************** \n" );
+		}
+		
+		/**
+		 * Instantiate lists tests
+		 */
+		private function listsInstantiateTests():void
+		{
+			var arrayTests:ArrayTests = new ArrayTests();
+			var vectorTests:VectorTests = new VectorTests();
+			
+			this._textViewer.log( "Instantiate lists tests" );
+			this._textViewer.log( this.getTestResult( "Array normal instantiate", arrayTests.instantiateNormal ) );
+			this._textViewer.log( this.getTestResult( "Vector normal instantiate", vectorTests.instantiateNormal ) );
+			this._textViewer.log( this.getTestResult( "Array short instantiate", arrayTests.instantiateShort ) );
+			this._textViewer.log( this.getTestResult( "Vector short instantiate", vectorTests.instantiateShort ) );
 			this._textViewer.log( String( "*********************************************** \n" ) );
 		}
 		
 		/**
-		 * Tests of int
+		 * Push lists tests
 		 */
-		private function intTests():void
+		private function listsPushTests():void
 		{
-			var testClass:IntTests = new IntTests();
+			var arrayTests:ArrayTests = new ArrayTests();
+			var vectorTests:VectorTests = new VectorTests();
 			
-			this._textViewer.log( String( testClass.description ) );
-			this._textViewer.log( this.getTestResult( "int instantiate", testClass.instantiate ) );
-			this._textViewer.log( this.getTestResult( "int addition", testClass.addition ) );
-			this._textViewer.log( this.getTestResult( "int subtraction", testClass.subtraction ) );
-			this._textViewer.log( this.getTestResult( "int multiplication", testClass.multiplication ) );
-			this._textViewer.log( this.getTestResult( "int division", testClass.division ) );
+			this._textViewer.log( "Push lists tests" );
+			this._textViewer.log( this.getTestResult( "Array push", arrayTests.push ) );
+			this._textViewer.log( this.getTestResult( "Vector push", vectorTests.push ) );
 			this._textViewer.log( String( "*********************************************** \n" ) );
 		}
 		
 		/**
-		 * Tests of int
+		 * Unshift lists tests
 		 */
-		private function uintTests():void
+		private function listsUnshiftTests():void
 		{
-			var testClass:UintTests = new UintTests();
+			var arrayTests:ArrayTests = new ArrayTests();
+			var vectorTests:VectorTests = new VectorTests();
 			
-			this._textViewer.log( String( testClass.description ) );
-			this._textViewer.log( this.getTestResult( "uint instantiate", testClass.instantiate ) );
-			this._textViewer.log( this.getTestResult( "uint addition", testClass.addition ) );
-			this._textViewer.log( this.getTestResult( "uint subtraction", testClass.subtraction ) );
-			this._textViewer.log( this.getTestResult( "uint multiplication", testClass.multiplication ) );
-			this._textViewer.log( this.getTestResult( "uint division", testClass.division ) );
+			this._textViewer.log( "Unshift lists tests" );
+			this._textViewer.log( this.getTestResult( "Array unshift", arrayTests.unshift ) );
+			this._textViewer.log( this.getTestResult( "Vector unshift", vectorTests.unshift ) );
 			this._textViewer.log( String( "*********************************************** \n" ) );
 		}
 		
 		/**
-		 * Tests of Array
+		 * Shift lists tests
 		 */
-		private function arrayTests():void
+		private function listsShiftTests():void
 		{
-			var testClass:ArrayTests = new ArrayTests();
+			var arrayTests:ArrayTests = new ArrayTests();
+			var vectorTests:VectorTests = new VectorTests();
 			
-			this._textViewer.log( String( testClass.description ) );
-			this._textViewer.log( this.getTestResult( "Array normal instantiate", testClass.instantiateNormal ) );
-			this._textViewer.log( this.getTestResult( "Array short instantiate", testClass.instantiateShort ) );
-			this._textViewer.log( this.getTestResult( "Array push", testClass.push ) );
-			this._textViewer.log( this.getTestResult( "Array unshift", testClass.unshift ) );
-			this._textViewer.log( this.getTestResult( "Array shift", testClass.shift ) );
-			this._textViewer.log( this.getTestResult( "Array indexOf", testClass.indexOf ) );
+			this._textViewer.log( "Shift lists tests" );
+			this._textViewer.log( this.getTestResult( "Array shift", arrayTests.shift ) );
+			this._textViewer.log( this.getTestResult( "Vector shift", vectorTests.shift ) );
 			this._textViewer.log( String( "*********************************************** \n" ) );
 		}
 		
 		/**
-		 * Tests of Vector
+		 * indexOf lists tests
 		 */
-		private function vectorTests():void
+		private function listsIndexOfTests():void
 		{
-			var testClass:VectorTests = new VectorTests();
+			var arrayTests:ArrayTests = new ArrayTests();
+			var vectorTests:VectorTests = new VectorTests();
 			
-			this._textViewer.log( String( testClass.description ) );
-			this._textViewer.log( this.getTestResult( "Vector normal instantiate", testClass.instantiateNormal ) );
-			this._textViewer.log( this.getTestResult( "Vector short instantiate", testClass.instantiateNormal ) );
-			this._textViewer.log( this.getTestResult( "Vector push", testClass.instantiateNormal ) );
-			this._textViewer.log( this.getTestResult( "Vector unshift", testClass.instantiateNormal ) );
-			this._textViewer.log( this.getTestResult( "Vector shift", testClass.instantiateNormal ) );
-			this._textViewer.log( this.getTestResult( "Vector indexOf", testClass.instantiateNormal ) );
+			this._textViewer.log( "indexOf lists tests" );
+			this._textViewer.log( this.getTestResult( "Array indexOf", arrayTests.indexOf ) );
+			this._textViewer.log( this.getTestResult( "Vector indexOf", vectorTests.indexOf ) );
 			this._textViewer.log( String( "*********************************************** \n" ) );
 		}
 		
@@ -220,32 +299,46 @@ package
 		}
 		
 		/**
-		 * Tests of Object
+		 * Non specific typed instantiate
 		 */
-		private function objectTests():void
+		private function instantiateNonSPecificTypedTest():void
 		{
-			var testClass:ObjectTests = new ObjectTests();
+			var objectTests:ObjectTests = new ObjectTests();
+			var asteriskTests:AsteriskTests = new AsteriskTests();
 			
-			this._textViewer.log( String( testClass.description ) );
-			this._textViewer.log( this.getTestResult( "Object normal instantiate", testClass.instantiateNormal ) );
-			this._textViewer.log( this.getTestResult( "Object short instantiate", testClass.instantiateShort ) );
-			this._textViewer.log( this.getTestResult( "Object use with Number", testClass.useWithNumber ) );
-			this._textViewer.log( this.getTestResult( "Object use with String", testClass.useWithString ) );
+			this._textViewer.log( String( "Non specific typed instantiate" ) );
+			this._textViewer.log( this.getTestResult( "Object normal instantiate", objectTests.instantiateNormal ) );
+			this._textViewer.log( this.getTestResult( "Asterisk normal instantiate", asteriskTests.instatiateNormal ) );
+			this._textViewer.log( this.getTestResult( "Object short instantiate", objectTests.instantiateShort ) );
+			this._textViewer.log( this.getTestResult( "Asterisk short instantiate", asteriskTests.instatiateShort ) );
 			this._textViewer.log( String( "*********************************************** \n" ) );
 		}
 		
 		/**
-		 * Tests of Asterisk (*)
+		 * Non specific typed use with Number
 		 */
-		private function asteriskTests():void
+		private function useWithNumberNonSPecificTypedTest():void
 		{
-			var testClass:AsteriskTests = new AsteriskTests();
+			var objectTests:ObjectTests = new ObjectTests();
+			var asteriskTests:AsteriskTests = new AsteriskTests();
 			
-			this._textViewer.log( String( testClass.description ) );
-			this._textViewer.log( this.getTestResult( "Asterisk normal instantiate", testClass.instatiateNormal ) );
-			this._textViewer.log( this.getTestResult( "Asterisk short instantiate", testClass.instatiateShort ) );
-			this._textViewer.log( this.getTestResult( "Asterisk use with Number", testClass.useWithNumber ) );
-			this._textViewer.log( this.getTestResult( "Asterisk use with String", testClass.useWithString ) );
+			this._textViewer.log( String( "Non specific typed use with Number" ) );
+			this._textViewer.log( this.getTestResult( "Object normal instantiate", objectTests.useWithNumber ) );
+			this._textViewer.log( this.getTestResult( "Asterisk normal instantiate", asteriskTests.useWithNumber ) );
+			this._textViewer.log( String( "*********************************************** \n" ) );
+		}
+		
+		/**
+		 * Non specific typed use with String
+		 */
+		private function useWithStringNonSPecificTypedTest():void
+		{
+			var objectTests:ObjectTests = new ObjectTests();
+			var asteriskTests:AsteriskTests = new AsteriskTests();
+			
+			this._textViewer.log( String( "Non specific typed use with Number" ) );
+			this._textViewer.log( this.getTestResult( "Object normal instantiate", objectTests.useWithString ) );
+			this._textViewer.log( this.getTestResult( "Asterisk normal instantiate", asteriskTests.useWithString ) );
 			this._textViewer.log( String( "*********************************************** \n" ) );
 		}
 		
