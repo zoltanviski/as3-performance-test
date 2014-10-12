@@ -14,6 +14,7 @@ package
 	import hu.vizoli.performancetest.CastTests;
 	import hu.vizoli.performancetest.ConditionTests;
 	import hu.vizoli.performancetest.constant.CTests;
+	import hu.vizoli.performancetest.DescribeTypeTests;
 	import hu.vizoli.performancetest.IntTests;
 	import hu.vizoli.performancetest.IntTests;
 	import hu.vizoli.performancetest.LoopTests;
@@ -126,6 +127,7 @@ package
 			this.castsTests();
 			this.conditionsTests();
 			this.accessPropertyTests();
+			this.describeTypeTests();
 			
 			this._startTestButton.setLabelToStartTheTest();
 		}
@@ -407,6 +409,19 @@ package
 			this._textViewer.log( this.getTestResult( "PropertyAccessingTests static const", PropertyAccessingTests.accessStaticConst ) );
 			this._textViewer.log( this.getTestResult( "PropertyAccessingTests static var", PropertyAccessingTests.accessStaticVar ) );
 			this._textViewer.log( this.getTestResult( "PropertyAccessingTests static method", PropertyAccessingTests.accessStaticMethod ) );
+			this._textViewer.log( String( "*********************************************** \n" ) );
+		}
+		
+		/**
+		 * Describe type tests
+		 */
+		private function describeTypeTests():void
+		{
+			var objectTests:DescribeTypeTests = new DescribeTypeTests();
+			
+			this._textViewer.log( String( "Describet type tests" ) );
+			this._textViewer.log( this.getTestResult( "Describe type", objectTests.describeTypeTest ) );
+			this._textViewer.log( this.getTestResult( "Describe type to JSON", objectTests.describeTypeToJSONTest ) );
 			this._textViewer.log( String( "*********************************************** \n" ) );
 		}
 		
