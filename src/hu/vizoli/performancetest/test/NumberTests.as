@@ -1,7 +1,7 @@
-package hu.vizoli.performancetest 
+package hu.vizoli.performancetest.test 
 {
 	import com.gskinner.performance.AbstractTest;
-	import hu.vizoli.performancetest.constant.CNumbers;
+	import hu.vizoli.performancetest.test.constant.CNumbers;
 	
 	/**
 	 * Test the Number primitive

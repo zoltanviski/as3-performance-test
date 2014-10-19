@@ -1,7 +1,7 @@
-package hu.vizoli.performancetest 
+package hu.vizoli.performancetest.test 
 {
 	import com.gskinner.performance.AbstractTest;
-	import hu.vizoli.performancetest.constant.CUints;
+	import hu.vizoli.performancetest.test.constant.CUints;
 	
 	/**
 	 * Test the uint primitive

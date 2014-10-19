@@ -1,28 +1,28 @@
-package hu.vizoli.performancetest 
+package hu.vizoli.performancetest.test 
 {
 	import com.gskinner.performance.AbstractTest;
-	import hu.vizoli.performancetest.constant.CObjects;
+	import hu.vizoli.performancetest.test.constant.CAsterisks;
 	
 	/**
-	 * Test the Object
+	 * Test the Asterisk (*)
 	 * 
 	 * @author vizoli
 	 */
-	public class ObjectTests extends AbstractTest
+	public class AsteriskTests extends AbstractTest
 	{
-		private var testVar:Object;
+		private var testVar:*;
 		
-		public function ObjectTests():void 
+		public function AsteriskTests():void 
 		{
-			this.description = CObjects.DESCRIPTION;
+			this.description = CAsterisks.DESCRIPTION;
 		}
 		
 		/**
 		 * Normal instantiate test
 		 */
-		public function instantiateNormal():void 
+		public function instatiateNormal():void 
 		{
-			var l:int = CObjects.LOOPS;
+			var l:int = CAsterisks.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
 			{
 				this.testVar = new Object();
@@ -32,9 +32,9 @@ package hu.vizoli.performancetest
 		/**
 		 * Short instantiate test
 		 */
-		public function instantiateShort():void 
+		public function instatiateShort():void 
 		{
-			var l:int = CObjects.LOOPS;
+			var l:int = CAsterisks.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
 			{
 				this.testVar = {};
@@ -46,9 +46,9 @@ package hu.vizoli.performancetest
 		 */
 		public function useWithNumber():void 
 		{
-			this.testVar = CObjects.INIT_INT;
+			this.testVar = CAsterisks.INIT_INT;
 			
-			var l:int = CObjects.LOOPS;
+			var l:int = CAsterisks.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
 			{
 				this.testVar = Number( this.testVar ) * Number( this.testVar );
@@ -63,12 +63,12 @@ package hu.vizoli.performancetest
 		 */
 		public function useWithString():void 
 		{
-			this.testVar = CObjects.INIT_STRING;
+			this.testVar = CAsterisks.INIT_STRING;
 			
-			var l:int = CObjects.LOOPS;
+			var l:int = CAsterisks.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
 			{
-				this.testVar += CObjects.INIT_STRING;
+				this.testVar += CAsterisks.INIT_STRING;
 			}
 		}
 		

@@ -9,21 +9,22 @@ package
 	import flash.events.MouseEvent;
 	import flash.events.TimerEvent;
 	import flash.utils.Timer;
-	import hu.vizoli.performancetest.ArrayTests;
-	import hu.vizoli.performancetest.AsteriskTests;
-	import hu.vizoli.performancetest.CastTests;
-	import hu.vizoli.performancetest.ConditionTests;
-	import hu.vizoli.performancetest.constant.CTests;
-	import hu.vizoli.performancetest.DescribeTypeTests;
-	import hu.vizoli.performancetest.IntTests;
-	import hu.vizoli.performancetest.IntTests;
-	import hu.vizoli.performancetest.LoopTests;
-	import hu.vizoli.performancetest.NumberTests;
-	import hu.vizoli.performancetest.ObjectTests;
-	import hu.vizoli.performancetest.PropertyAccessingTests;
-	import hu.vizoli.performancetest.StringTests;
-	import hu.vizoli.performancetest.UintTests;
-	import hu.vizoli.performancetest.VectorTests;
+	import hu.vizoli.performancetest.test.ArrayTests;
+	import hu.vizoli.performancetest.test.AsteriskTests;
+	import hu.vizoli.performancetest.test.BitwiseTests;
+	import hu.vizoli.performancetest.test.CastTests;
+	import hu.vizoli.performancetest.test.ConditionTests;
+	import hu.vizoli.performancetest.test.constant.CTests;
+	import hu.vizoli.performancetest.test.DescribeTypeTests;
+	import hu.vizoli.performancetest.test.IntTests;
+	import hu.vizoli.performancetest.test.IntTests;
+	import hu.vizoli.performancetest.test.LoopTests;
+	import hu.vizoli.performancetest.test.NumberTests;
+	import hu.vizoli.performancetest.test.ObjectTests;
+	import hu.vizoli.performancetest.test.PropertyAccessingTests;
+	import hu.vizoli.performancetest.test.StringTests;
+	import hu.vizoli.performancetest.test.UintTests;
+	import hu.vizoli.performancetest.test.VectorTests;
 	import hu.vizoli.performancetest.view.constant.CStartTestButton;
 	import hu.vizoli.performancetest.view.constant.CTestViewer;
 	import hu.vizoli.performancetest.view.StartTestButton;
@@ -128,6 +129,8 @@ package
 			this.conditionsTests();
 			this.accessPropertyTests();
 			this.describeTypeTests();
+			
+			this.biwiseTests();
 			
 			this._startTestButton.setLabelToStartTheTest();
 		}
@@ -423,6 +426,29 @@ package
 			this._textViewer.log( this.getTestResult( "Describe type", objectTests.describeTypeTest ) );
 			this._textViewer.log( this.getTestResult( "Describe type to JSON", objectTests.describeTypeToJSONTest ) );
 			this._textViewer.log( String( "*********************************************** \n" ) );
+		}
+		
+		/**
+		 * BitwiseTests
+		 */
+		private function biwiseTests():void
+		{
+			var bitwiseTests:BitwiseTests = new BitwiseTests();
+
+			this._textViewer.log( "Bitwise test" );
+			this._textViewer.log( this.getTestResult( "Normal complent", bitwiseTests.normalComplement ) );
+			this._textViewer.log( this.getTestResult( "Bitwise complent", bitwiseTests.bitwiseComplement ) );
+			
+			this._textViewer.log( this.getTestResult( "Normal modulo", bitwiseTests.normalModulo ) );
+			this._textViewer.log( this.getTestResult( "Bitwise modulo", bitwiseTests.bitwiseAnd ) );
+			
+			this._textViewer.log( this.getTestResult( "Normal 8 multiplication", bitwiseTests.normal8Multiplication ) );
+			this._textViewer.log( this.getTestResult( "Bitwise left shift", bitwiseTests.leftShift ) );
+			
+			this._textViewer.log( this.getTestResult( "Normal 8 divide", bitwiseTests.normal8Divide ) );
+			this._textViewer.log( this.getTestResult( "Bitwise right shift", bitwiseTests.rightShift ) );
+			
+			this._textViewer.log( "*********************************************** \n" );
 		}
 		
 		/**

@@ -1,4 +1,4 @@
-package hu.vizoli.performancetest.constant 
+package hu.vizoli.performancetest.test.constant 
 {
 	/**
 	 * Constants of Conditions
@@ -9,7 +9,7 @@ package hu.vizoli.performancetest.constant
 	{
 		
 		public static const DESCRIPTION:String = "Conditions tests";
-		public static const LOOPS:int = 1000000;
+		public static const LOOPS:int = 10000000;
 		
 	}
 

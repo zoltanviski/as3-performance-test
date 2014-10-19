@@ -1,21 +1,20 @@
-package hu.vizoli.performancetest 
+package hu.vizoli.performancetest.test 
 {
 	import com.gskinner.performance.AbstractTest;
-	import hu.vizoli.performancetest.constant.CVectors;
-	import hu.vizoli.performancetest.constant.CVectors;
+	import hu.vizoli.performancetest.test.constant.CArrays;
 	
 	/**
-	 * Test the Vector
+	 * Test the Array
 	 * 
 	 * @author vizoli
 	 */
-	public class VectorTests extends AbstractTest
+	public class ArrayTests extends AbstractTest
 	{
-		private var testVar:Vector.<int>;
-
-		public function VectorTests() 
+		private var testVar:Array;
+		
+		public function ArrayTests() 
 		{
-			this.description = CVectors.DESCRIPTION;
+			this.description = CArrays.DESCRIPTION;
 		}
 		
 		/**
@@ -23,10 +22,10 @@ package hu.vizoli.performancetest
 		 */
 		public function instantiateNormal():void 
 		{
-			var l:int = CVectors.LOOPS;
+			var l:int = CArrays.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
 			{
-				this.testVar = new Vector.<int>;
+				this.testVar = new Array();
 			}
 		}
 		
@@ -35,10 +34,10 @@ package hu.vizoli.performancetest
 		 */
 		public function instantiateShort():void 
 		{
-			var l:int = CVectors.LOOPS;
+			var l:int = CArrays.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
 			{
-				this.testVar = new <int>[];
+				this.testVar = [ ];
 			}
 		}
 		
@@ -47,9 +46,9 @@ package hu.vizoli.performancetest
 		 */
 		public function push():void 
 		{
-			this.testVar = new <int>[];
+			this.testVar = [ ];
 			
-			var l:int = CVectors.LOOPS;
+			var l:int = CArrays.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
 			{
 				this.testVar.push( i );
@@ -61,9 +60,9 @@ package hu.vizoli.performancetest
 		 */
 		public function unshift():void 
 		{
-			this.testVar = new <int>[];
+			this.testVar = [ ];
 			
-			var l:int = CVectors.LOOPS;
+			var l:int = CArrays.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
 			{
 				this.testVar.unshift( i );
@@ -75,9 +74,9 @@ package hu.vizoli.performancetest
 		 */
 		public function shift():void 
 		{
-			this.testVar = new <int>[];
+			this.testVar = [ ];
 			
-			var l:int = CVectors.LOOPS;
+			var l:int = CArrays.LOOPS;
 			var i:int;
 			for ( i = 0; i < l; i++ )
 			{
@@ -95,15 +94,15 @@ package hu.vizoli.performancetest
 		 */
 		public function indexOf():void 
 		{
-			this.testVar = new <int>[];
+			this.testVar = [ ];
 			
-			var l:int = CVectors.LOOPS;
+			var l:int = CArrays.LOOPS;
 			for ( var i:int = 0; i < l; i++ )
 			{
 				this.testVar.push( i );
 			}
 			
-			this.testVar.indexOf( CVectors.LOOPS / 2 );
+			this.testVar.indexOf( CArrays.LOOPS / 2 )
 		}
 		
 	}

@@ -1,4 +1,4 @@
-package hu.vizoli.performancetest.constant 
+package hu.vizoli.performancetest.test.constant 
 {
 	/**
 	 * Constants of uints

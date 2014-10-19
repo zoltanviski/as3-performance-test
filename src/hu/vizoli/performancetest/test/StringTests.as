@@ -1,8 +1,8 @@
-package hu.vizoli.performancetest 
+package hu.vizoli.performancetest.test 
 {
 	import com.gskinner.performance.AbstractTest;
-	import hu.vizoli.performancetest.constant.CInts;
-	import hu.vizoli.performancetest.constant.CStrings;
+	import hu.vizoli.performancetest.test.constant.CInts;
+	import hu.vizoli.performancetest.test.constant.CStrings;
 	
 	/**
 	 * Test the String
@@ -61,7 +61,7 @@ package hu.vizoli.performancetest
 				this.testVar += CStrings.INIT_STRING;
 			}
 			
-			this.testVar.replace( String( CStrings.INIT_STRING ).charAt( 0 ), String( CStrings.INIT_STRING ).charAt( 1 ) ); 
+			this.testVar.replace( /a/g, String( CStrings.INIT_STRING ).charAt( 1 ) ); 
 		}
 		
 		/**
@@ -77,7 +77,7 @@ package hu.vizoli.performancetest
 				this.testVar += CStrings.INIT_STRING;
 			}
 			
-			this.testVar.split( String( CStrings.INIT_STRING ).charAt( 0 ) ).join( String( CStrings.INIT_STRING ).charAt( 1 ) ); 
+			this.testVar.split( "a" ).join( String( CStrings.INIT_STRING ).charAt( 1 ) ); 
 		}
 		
 	}

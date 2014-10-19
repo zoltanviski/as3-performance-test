@@ -1,11 +1,11 @@
-package hu.vizoli.performancetest 
+package hu.vizoli.performancetest.test 
 {
 	import avmplus.describeType;
 	import avmplus.describeTypeJSON;
 	import com.gskinner.performance.AbstractTest;
 	import flash.display.Sprite;
 	import flash.events.Event;
-	import hu.vizoli.performancetest.constant.CDescribeType;
+	import hu.vizoli.performancetest.test.constant.CDescribeType;
 	
 	/**
 	 * Test the DescribeType
@@ -40,7 +40,7 @@ package hu.vizoli.performancetest
 			var l:int = CDescribeType.LOOP;
 			for ( var i:int = 0; i < l; i++ )
 			{
-				trace( describeTypeJSON( Event, 0 ) );
+				//trace( describeTypeJSON( Event, 0 ) );
 			}
 		}
 		

@@ -1,4 +1,4 @@
-package hu.vizoli.performancetest.constant 
+package hu.vizoli.performancetest.test.constant 
 {
 	/**
 	 * Constants of PropertyAccessing
@@ -9,7 +9,7 @@ package hu.vizoli.performancetest.constant
 	{
 		
 		public static const DESCRIPTION:String = "Property Accessing tests";
-		public static const LOOPS:int = 500000;
+		public static const LOOPS:int = 5000000;
 		
 	}
 
