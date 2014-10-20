@@ -429,7 +429,7 @@ package
 		}
 		
 		/**
-		 * BitwiseTests
+		 * Bitwise tests
 		 */
 		private function biwiseTests():void
 		{
@@ -447,6 +447,9 @@ package
 			
 			this._textViewer.log( this.getTestResult( "Normal 8 divide", bitwiseTests.normal8Divide ) );
 			this._textViewer.log( this.getTestResult( "Bitwise right shift", bitwiseTests.rightShift ) );
+			
+			this._textViewer.log( this.getTestResult( "Normal swap", bitwiseTests.normalSwap ) );
+			this._textViewer.log( this.getTestResult( "Bitwise swap", bitwiseTests.bitwiseSwap ) );
 			
 			this._textViewer.log( "*********************************************** \n" );
 		}

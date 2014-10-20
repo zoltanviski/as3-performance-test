@@ -129,6 +129,41 @@ package hu.vizoli.performancetest.test
 			}
 		}
 		
+		/**
+		 * Normal swap
+		 */
+		public function normalSwap():void 
+		{
+			var tempInt:int;
+			var testInt:int = CBitwise.INIT_NUMBER;
+			var testInt2:int = CBitwise.INIT_NUMBER_2;
+
+			var l:int = CBitwise.LOOPS;	
+			for ( var i:int = 0; i < l; i++ )
+			{
+				tempInt = testInt;
+				testInt = testInt2;
+				testInt2 = tempInt;
+			}
+		}
+		
+		/**
+		 * Bitwise swap
+		 */
+		public function bitwiseSwap():void 
+		{
+			var testInt:int = CBitwise.INIT_NUMBER;
+			var testInt2:int = CBitwise.INIT_NUMBER_2;
+
+			var l:int = CBitwise.LOOPS;	
+			for ( var i:int = 0; i < l; i++ )
+			{
+				testInt ^= testInt2;
+				testInt2 ^= testInt;
+				testInt ^= testInt2;
+			}
+		}
+		
 	}
 
 }
