@@ -2,8 +2,6 @@ package hu.vizoli.performancetest.view
 {
 	import com.bit101.components.TextArea;
 	import flash.display.Sprite;
-	import flash.text.TextField;
-	import flash.text.TextFieldAutoSize;
 	import hu.vizoli.performancetest.view.constant.CTestViewer;
 	
 	/**

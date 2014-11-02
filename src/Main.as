@@ -1,9 +1,7 @@
 package 
 {
 	import com.gskinner.performance.AbstractTest;
-	import com.gskinner.performance.PerformanceTest;
 	import com.gskinner.performance.ptest;
-	import flash.accessibility.AccessibilityProperties;
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
@@ -15,8 +13,6 @@ package
 	import hu.vizoli.performancetest.test.CastTests;
 	import hu.vizoli.performancetest.test.ConditionTests;
 	import hu.vizoli.performancetest.test.constant.CTests;
-	import hu.vizoli.performancetest.test.DescribeTypeTests;
-	import hu.vizoli.performancetest.test.IntTests;
 	import hu.vizoli.performancetest.test.IntTests;
 	import hu.vizoli.performancetest.test.LoopTests;
 	import hu.vizoli.performancetest.test.NumberTests;
@@ -31,7 +27,7 @@ package
 	import hu.vizoli.performancetest.view.TestViewer;
 	
 	/**
-	 * The main of the flash performance test project
+	 * The main of the flash performance test project.
 	 * 
 	 * @author vizoli
 	 */
@@ -54,7 +50,7 @@ package
 		}
 		
 		/**
-		 * Init the application
+		 * Init the application.
 		 * 
 		 * @param	e
 		 */
@@ -69,7 +65,7 @@ package
 		}
 		
 		/**
-		 * Create children
+		 * Create children.
 		 */
 		private function createChildren():void
 		{
@@ -86,7 +82,7 @@ package
 		}
 		
 		/**
-		 * Start the tests
+		 * Start the tests.
 		 * 
 		 * @param	e
 		 */
@@ -101,7 +97,7 @@ package
 		}
 		
 		/**
-		 * Run tests
+		 * Run tests.
 		 * 
 		 * @param	e
 		 */
@@ -128,15 +124,13 @@ package
 			this.castsTests();
 			this.conditionsTests();
 			this.accessPropertyTests();
-			this.describeTypeTests();
-			
 			this.biwiseTests();
 			
 			this._startTestButton.setLabelToStartTheTest();
 		}
 		
 		/**
-		 * Instantiate numbers test
+		 * Instantiate numbers test.
 		 */
 		private function numbersInstantiateTests():void
 		{
@@ -152,7 +146,7 @@ package
 		}
 		
 		/**
-		 *  Addition numbers tests
+		 *  Addition numbers tests.
 		 */
 		private function numbersAdditionTests():void
 		{
@@ -168,7 +162,7 @@ package
 		}
 		
 		/**
-		 *  Subtraction numbers tests
+		 *  Subtraction numbers tests.
 		 */
 		private function numbersSubtractionTests():void
 		{
@@ -184,7 +178,7 @@ package
 		}
 		
 		/**
-		 *  Multiplication numbers tests
+		 *  Multiplication numbers tests.
 		 */
 		private function numbersMultiplicationTests():void
 		{
@@ -200,7 +194,7 @@ package
 		}
 		
 		/**
-		 *  Division numbers tests
+		 *  Division numbers tests.
 		 */
 		private function numbersDivisionTests():void
 		{
@@ -216,7 +210,7 @@ package
 		}
 		
 		/**
-		 * Instantiate lists tests
+		 * Instantiate lists tests.
 		 */
 		private function listsInstantiateTests():void
 		{
@@ -232,7 +226,7 @@ package
 		}
 		
 		/**
-		 * Push lists tests
+		 * Push lists tests.
 		 */
 		private function listsPushTests():void
 		{
@@ -246,7 +240,7 @@ package
 		}
 		
 		/**
-		 * Unshift lists tests
+		 * Unshift lists tests.
 		 */
 		private function listsUnshiftTests():void
 		{
@@ -260,7 +254,7 @@ package
 		}
 		
 		/**
-		 * Shift lists tests
+		 * Shift lists tests.
 		 */
 		private function listsShiftTests():void
 		{
@@ -274,7 +268,7 @@ package
 		}
 		
 		/**
-		 * indexOf lists tests
+		 * indexOf lists tests.
 		 */
 		private function listsIndexOfTests():void
 		{
@@ -288,7 +282,7 @@ package
 		}
 		
 		/**
-		 * Tests of Vector
+		 * Tests of Vector.
 		 */
 		private function loopTests():void
 		{
@@ -304,7 +298,7 @@ package
 		}
 		
 		/**
-		 * Non specific typed instantiate
+		 * Non specific typed instantiate.
 		 */
 		private function instantiateNonSPecificTypedTest():void
 		{
@@ -320,7 +314,7 @@ package
 		}
 		
 		/**
-		 * Non specific typed use with Number
+		 * Non specific typed use with Number.
 		 */
 		private function useWithNumberNonSPecificTypedTest():void
 		{
@@ -334,7 +328,7 @@ package
 		}
 		
 		/**
-		 * Non specific typed use with String
+		 * Non specific typed use with String.
 		 */
 		private function useWithStringNonSPecificTypedTest():void
 		{
@@ -348,7 +342,7 @@ package
 		}
 		
 		/**
-		 * Tests of String
+		 * Tests of String.
 		 */
 		private function stringTests():void
 		{
@@ -363,7 +357,7 @@ package
 		}
 		
 		/**
-		 * Tests of Casts
+		 * Tests of Casts.
 		 */
 		private function castsTests():void
 		{
@@ -378,7 +372,7 @@ package
 		}
 		
 		/**
-		 * Tests of Conditions
+		 * Tests of Conditions.
 		 */
 		private function conditionsTests():void
 		{
@@ -398,7 +392,7 @@ package
 		}
 	
 		/**
-		 * Tests of Accessing property
+		 * Tests of Accessing property.
 		 */
 		private function accessPropertyTests():void
 		{
@@ -416,20 +410,7 @@ package
 		}
 		
 		/**
-		 * Describe type tests
-		 */
-		private function describeTypeTests():void
-		{
-			var objectTests:DescribeTypeTests = new DescribeTypeTests();
-			
-			this._textViewer.log( String( "Describet type tests" ) );
-			this._textViewer.log( this.getTestResult( "Describe type", objectTests.describeTypeTest ) );
-			this._textViewer.log( this.getTestResult( "Describe type to JSON", objectTests.describeTypeToJSONTest ) );
-			this._textViewer.log( String( "*********************************************** \n" ) );
-		}
-		
-		/**
-		 * Bitwise tests
+		 * Bitwise tests.
 		 */
 		private function biwiseTests():void
 		{
@@ -455,7 +436,7 @@ package
 		}
 		
 		/**
-		 * Get test in String
+		 * Get test in String.
 		 * 
 		 * @param	testName
 		 * @param	testFunction
@@ -468,7 +449,7 @@ package
 		}
 		
 		/**
-		 * Trim the number
+		 * Trim the number.
 		 * 
 		 * @param	theNumber
 		 * @param	decPlaces
